@@ -85,4 +85,4 @@ Developers are not obliged to catch runtime exceptions. The technique to catch r
 ## Conclusion
 Using runtime exceptions frees the developer from repeating the *try-catch* blocks when the input is known to be safe and usable. 
 
-Methods that deal directly with external sources can use the `try` block as one of the many ways to manage random inputs from external sources.
+Methods that deal directly with external sources can use the *try-catch* block as one of the many ways to manage random inputs from external sources.
