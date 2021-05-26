@@ -1,10 +1,10 @@
 A two-parameter Scala function is defined with contravariant parameter type and covariant return type,
 
-   	Function2[-T, +R](t: T) : R
+   	Function[-T, +R](t: T) : R
 
 instead of, 
 
-   	Function2[+T, -R](t: T) : R
+   	Function[+T, -R](t: T) : R
 
 Why? Let's assume a higher order function accepts a function with covariant type parameters. There is no guarantee that the given function can work with the instances provided by the higher order function. 
 
