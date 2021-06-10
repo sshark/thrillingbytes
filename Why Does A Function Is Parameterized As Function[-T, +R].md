@@ -1,4 +1,4 @@
-A two-parameter Scala function is defined with contravariant parameter type and covariant return type,
+A Scala function is defined with contravariant parameter type and covariant return type,
 
    	Function[-T, +R](t: T) : R
 
