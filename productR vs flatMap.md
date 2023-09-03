@@ -1,18 +1,21 @@
-# *>>* vs _*>_
+# `>>` vs `*>`
 
-*>>* or flat map is a lazy operator evaluator while _*>_ or productR is a strict evalutor. Taking `IO` from `cats-effect`, as an example, 
+`>>` is a *lazy* evaluator while `*>` or `productR` is a *strict* evaluator. Taking `IO` from `cats-effect`, as an example, 
 
+```scala
+lazy val left = IO(throw new Exception("bad"))
+lazy val right = {println("right is awakened"); IO.println("Hello, World")}
+
+left *> right  // A
+left >> right  // B
 ```
-val left = IO(throw new Exception("bad"))
-val right = {println("right is awaken"); IO.println("Hello, World")}
 
-left *> right   // A
-left >> right   // B
-```
-
-(A) shows "bad" and "right is awaken". `left` and `right` are evaluated at the same time
-(B) shows "bad" only because right is lazily evaluated i.e. `left` is in an exception state therefore `right` is skipped
+(A) prints "bad" and "right is awakened". Both `left` and `right` are evaluated\
+(B) prints "bad" only. `right` is a `lazy` value and it is not evaluated immediately. `right` skips evaluation because `left` has thrown an exception
 
 For ZIO, its `*>` method behaves lazily like Cats Effect `IO`'s `>>`
 
-*`println(...)` is used to trace code exceution*
+## Observations
+1. Both `println(...)` and `lazy` are not required in actual use
+2. `println(...)` for tracing code execution
+3. `lazy` to prevent `right is awaken` message from printing if not invoked
