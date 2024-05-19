@@ -119,6 +119,9 @@ def divide(a: Int, b: Int): Either[String, Int] =
   if (b == 0) Left[Int]("/ by zero") else Right[String](a / b)
 
 def extract(result: Either[String, Int]): Unit = result match {
+  case Right(x) => println(s"The result is $x")
+  case Left(s)  => println("Cannot be divided by 0")
+}
 
 val result6: Either[String, Int] = for {
   x <- divide(10, 2)
@@ -130,6 +133,6 @@ val result7: Either[String, Int] = for {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDA4MzI5MDIsLTk1MDIzNTg4NiwxMz
-gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbMTIwOTI5Nzg4LC05NTAyMzU4ODYsMTM4MT
+Q4MjI3MSwtMjExODQ0NDgxNl19
 -->
