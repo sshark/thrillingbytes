@@ -107,10 +107,14 @@ It is not necessarily for the developer to check if  the call to `divide(...)` i
 
 Had function (B) return the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehesion loop as,
 ``` scala
-def 
+def add(a: Int, b: Int): Option[Int] = Some(a + b)
+
+val result5: Option[Int] = for {
+  x <- divide(10, 2)
+} yield add(10, x)
 ```
 > 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI4NDM3MjMyLC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTc3OTg5MzE1NiwtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
