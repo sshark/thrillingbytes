@@ -103,8 +103,8 @@ val result4: Option[Int] = for {
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [`for-comprehesion`]() loop will a type of `Option[Int]` where it can be `Some` of something or `Nobe` as indicated by the return type of `result3` and `result4`.
+It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [`for-comprehesion`](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will a type of `Option[Int]` where it can be `Some` of something or `None` as indicated by `result3` and `result4`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTI2NzQ2NzYsMTM4MTQ4MjI3MSwtMj
-ExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTY2NzU2NTA2MywxMzgxNDgyMjcxLC0yMT
+E4NDQ0ODE2XX0=
 -->
