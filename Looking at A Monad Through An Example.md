@@ -146,9 +146,13 @@ extract(result7)	// Error: / by zero
 
 This is the best solution compare to the other solutions presented albeit it is more complicated and require more reading into the topic. The code is better managed as we add more code to meet the new requirements. However, this is not the point of this article.
 
+Before we move to the next section, we can make use of exception and `Either` to simply the code.
+``` scala
+``
+
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNDg4MTI4NSwxMzMwNTI0NDM0LC05NT
-AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMjg4MjgzMDUxLDEzMzA1MjQ0MzQsLTk1MD
+IzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
