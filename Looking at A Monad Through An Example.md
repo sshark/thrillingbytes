@@ -119,20 +119,24 @@ def divide(a: Int, b: Int): Either[String, Int] =
   if (b == 0) Left[Int]("/ by zero") else Right[String](a / b)
 
 def extract(result: Either[String, Int]): Unit = result match {
-  case Right(x) => println(s"The result is $x")
-  case Left(s)  => println("Cannot be divided by 0")
+  case Right(x)  => println(s"The result is $x")
+  case Left(err) => println(s"Error: $err")
 }
 
 val result6: Either[String, Int] = for {
   x <- divide(10, 2)
 } yield add(10, x)
 
+extract(result6)	// The result is 5
+
 val result7: Either[String, Int] = for {
   x <- divide(10, 0)
 } yield add(10, x)  
+
+extract(result7)	// Error: / by zero
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwOTI5Nzg4LC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTk4ODc2NTE5MCwtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
