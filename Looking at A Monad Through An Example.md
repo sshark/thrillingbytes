@@ -144,10 +144,11 @@ extract(result7)	// Error: / by zero
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
-This is the best solution compare to the other solutions presented albeit it is more complicated and require more reading into the topic. The code is better
+This is the best solution compare to the other solutions presented albeit it is more complicated and require more reading into the topic. The code is better managed as we add more code to meet the new requirements. However, this is not the point of this article.
+
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzAzMjQ5MzUsMTMzMDUyNDQzNCwtOT
-UwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbMjExNDg4MTI4NSwxMzMwNTI0NDM0LC05NT
+AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
