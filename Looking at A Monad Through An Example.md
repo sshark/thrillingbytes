@@ -35,7 +35,7 @@ val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 // repeat the same code as (C) with error1 replace by error2 and so forth
 ```
 
-The second part of the extraction logic conflicts with DRY principle. Yes, we can refactor (C) into,
+The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
 ``` scala
 def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
     if (result._1 == null) {   // C
@@ -71,12 +71,12 @@ result1 match {
   case None    => println("Cannot be divided by zero")
 
 result2 match {
-  case Some(x) => println(s"The result of 10 / 2 is $x")
+  case Some(x) => println(s"The result of 10 / 0 is $x")
   case None    => println("Cannot be divided by zero")
-
 ```
+Like before we can apply DRY here
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MDU0OTgyNSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
