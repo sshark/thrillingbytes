@@ -58,9 +58,9 @@ The responbility lies with the caller to catch the exception but the developer d
 [^1]: Scala 3 is experimenting with the exception checking using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
 
 ## The Better Answer, Use An Effect
-Effect is not side effect. Effect in this context is like a *container* or a container with some capabilities. Simple container like `Opton` is a list with only 1 element
+Effect is not side effect. Effect in this context is like a *container* or a container with some capabilities. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With th
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDU2OTk5MjUsLTIxMTg0NDQ4MTZdfQ
+eyJoaXN0b3J5IjpbLTExNjkyNTg4NDMsLTIxMTg0NDQ4MTZdfQ
 ==
 -->
