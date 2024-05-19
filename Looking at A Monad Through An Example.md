@@ -67,9 +67,16 @@ val result2: Option[Int] = duv(10, 0)	// None
 
 // print the result
 result1 match {
-  case Some(x) => println(s"The result
+  case Some(x) => println(s"The result of 10 / 2 is $x")
+  case None    => println("Cannot be divided by zero")
+
+result2 match {
+  case Some(x) => println(s"The result of 10 / 2 is $x")
+  case None    => println("Cannot be divided by zero")
+
 ```
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5MjI5MTM4MiwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTI2MDU0OTgyNSwtMjExODQ0NDgxNl19
 -->
