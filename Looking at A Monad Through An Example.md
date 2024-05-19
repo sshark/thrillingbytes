@@ -135,15 +135,19 @@ val result7: Either[String, Int] = for {
 
 extract(result7)	// Error: / by zero
 ```
-As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 
-As metioned before, an effect is a container with capabilities: -
-1. `Option` provides a value or no value (empty) capability.
-2. `List` provides a list of values or no value (empty) capability.
-3. `Try`, like the `try-catch` block, catches any exception thrown within it.
-4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
+
+> Sidebar
+> As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
+>As metioned before, an effect is a container with capabilities: -
+>1. `Option` provides a value or no value (empty) capability.
+>2. `List` provides a list of values or no value (empty) capability.
+>3. `Try`, like the `try-catch` block, catches any exception thrown within it.
+>4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
+
+## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjYxMTU0ODAsMTMzMDUyNDQzNCwtOT
-UwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbODQ4NTc3MzQ1LDEzMzA1MjQ0MzQsLTk1MD
+IzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
