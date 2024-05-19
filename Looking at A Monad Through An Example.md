@@ -105,8 +105,8 @@ val result4: Option[Int] = for {
 
 extract(result4)	// Cannot be divided by zero
 ```
-The developer need not check if  `divide(...)` 
+It is not necessarily for the developer to check if  `divide(...)` call is a success or failure. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5OTk5NzQxMywxMzgxNDgyMjcxLC0yMT
+eyJoaXN0b3J5IjpbLTk2MzUxNDQ3MywxMzgxNDgyMjcxLC0yMT
 E4NDQ0ODE2XX0=
 -->
