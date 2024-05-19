@@ -144,7 +144,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
   } catch {case e: ArithmeticException => Left(e.getMessage)
 ```
 
-> _Sidebar_
+> **Sidebar**
 > As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/3.3.3/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 >As metioned before, an effect is a container with capabilities: -
 >1. `Option` provides a value or no value (empty) capability.
@@ -157,12 +157,12 @@ This is the best solution compares to the other solutions presented here albeit 
 ## And The Point Is...
 I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a typeclass[^tc]) that has the`map` and `flatMap` methods. I want to discuss these methods and how they work in the for-comprehension loop.
 
-> Sidebar
+> **Sidebar**
 > Functor is a typeclass too which contains the method `map` while Monad has the method `flatMap`. Since Monad is a subclass of Functor, Monad has `map` and `flatMap` methods.
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk3MzcwNDU5LDc1ODEzMjcxNSwxNzM3MT
-IyMDkxLDEzMzA1MjQ0MzQsLTk1MDIzNTg4NiwxMzgxNDgyMjcx
-LC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbNjA3NDI2MSw3NTgxMzI3MTUsMTczNzEyMj
+A5MSwxMzMwNTI0NDM0LC05NTAyMzU4ODYsMTM4MTQ4MjI3MSwt
+MjExODQ0NDgxNl19
 -->
