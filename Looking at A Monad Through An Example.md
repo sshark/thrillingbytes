@@ -113,8 +113,9 @@ val result5: Option[Int] = for {
   x <- divide(10, 2)
 } yield add(10, x)
 ```
-> 
+Going further, what if we want to the function to provide the error message
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3OTg5MzE1NiwtOTUwMjM1ODg2LDEzOD
-E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbLTEwNzk1NDg1NDcsLTk1MDIzNTg4NiwxMz
+gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
