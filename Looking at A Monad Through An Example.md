@@ -1,3 +1,4 @@
+
 # Looking at A Monad Through An Example
 There are many articles written about Monad. I want to do it differently explaining why does a Monad do and why it is useful to use Monad. Let's us begin right away.
 
@@ -46,6 +47,16 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
 Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `divide(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
 
 ## Throwing An Exception
-In Scala, all exceptions are unchecked unlike Java, where exceptions are split into `Exception` and `RuntimeException`. In Java, for checked exceptions, the developer has to enclose the function a `try-catch` block. On the other hand, for Scala, use the `try-catch` block if the developer want to catch
-Throwing an exception seems to be a better
+In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecled `RuntimeException`. In Java, for checked exceptions, the developer has to enclose the function a `try-catch` block. On the other hand, Scala developers use the `try-catch` block if they  want to catch the exception. 
+
+In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement the function using exception,
+``` scala
+def  div(a: Int, b: Int): Int = a / b
+```
+The responbility lies with the 
+
 ## The Better Answer, Use An Effect
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4MjcyNzE1NTJdfQ==
+-->
