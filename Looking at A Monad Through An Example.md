@@ -135,9 +135,9 @@ val result7: Either[String, Int] = for {
 
 extract(result7)	// Error: / by zero
 ```
-As we moving further
+As we discover later on, we can use other data structure like `Try` or `IO` from [Cats Effect](https://typelevel.org/cats-effect/). 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU5NDExMTkyLC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTE1NzMxNjI5NzgsLTk1MDIzNTg4NiwxMz
+gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
