@@ -53,10 +53,10 @@ In retrospective, it looks like throwing an exception seems to be the way forwar
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception if anything goes bad
+The responbility lies with the caller to catch the exception if anything goes bad. The downside of this is, the developer does not know that the function 
 
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODM5MjAzOTldfQ==
+eyJoaXN0b3J5IjpbLTIwNDIzNTI2XX0=
 -->
