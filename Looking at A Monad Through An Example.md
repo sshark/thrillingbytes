@@ -82,14 +82,15 @@ result2 match {
 Like before we can apply DRY principle here,
 ```  scala
 def extract(result: Option[Int]): Unit = {
-  case Some(x) => println(s"The result of 10 / 0 is $x")
+  case Some(x) => println(s"The result is $x")
   case None    => println("Cannot be divided by zero")
 }
 
-extract(reu
+extract(result1)	// The result is 5
+extract(result2)	// Cannot be divi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg4NzQ5NzgzLDEzODE0ODIyNzEsLTIxMT
+eyJoaXN0b3J5IjpbMzQ1MzkzMTY3LDEzODE0ODIyNzEsLTIxMT
 g0NDQ4MTZdfQ==
 -->
