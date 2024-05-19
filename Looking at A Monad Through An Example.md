@@ -47,7 +47,7 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
 Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `divide(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
 
 ## Throwing An Exception
-In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecled `RuntimeException`. In Java, for checked exceptions, the developer has to enclose the function a `try-catch` block. On the other hand, Scala developers use the `try-catch` block if they  want to catch the exception. 
+In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecked `RuntimeException`. In Java, functions that throw checked exceptions are enclosed in a `try-catch` block. On the other hand, Scala developers use the `try-catch` block to catch the exception they want to catch. 
 
 In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement function (A) using exception,
 ``` scala
@@ -60,5 +60,5 @@ The responbility lies with the caller to catch the exception and the developer d
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NzYwMTA1NF19
+eyJoaXN0b3J5IjpbLTIwMDU5OTQyNDNdfQ==
 -->
