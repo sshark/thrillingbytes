@@ -151,13 +151,13 @@ Before we move to the next section, we can make use of exception and `Either` to
 def divide(a: Int, b: Int): Either[String, Int] = 
   try {
     Right[String](a / b)
-  } catch {case e: AritException(e) =>
+  } catch {case e: ArithmeticException => Left[Int](
 
 ```
 
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxODAxOTI0OSwxMzMwNTI0NDM0LC05NT
+eyJoaXN0b3J5IjpbLTI0NzczOTY5MywxMzMwNTI0NDM0LC05NT
 AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
