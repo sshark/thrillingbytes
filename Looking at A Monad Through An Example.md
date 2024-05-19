@@ -83,14 +83,14 @@ Like before we can apply DRY principle here,
 ```  scala
 def extract(result: Option[Int]): Unit = {
   case Some(x) => println(s"The result is $x")
-  case None    => println("Cannot be divided by zero")
+  case None    => println("Cannot be divided by 0")
 }
 
 extract(result1)	// The result is 5
-extract(result2)	// Cannot be divi
+extract(result2)	// Cannot be divided by 0
 ```
-
+One thing to take note is don't be eager to extract the values from the effect unless this is the final call. Let say,
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1MzkzMTY3LDEzODE0ODIyNzEsLTIxMT
-g0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbLTE2MTcwMTIzMTgsMTM4MTQ4MjI3MSwtMj
+ExODQ0NDgxNl19
 -->
