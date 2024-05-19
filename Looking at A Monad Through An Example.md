@@ -116,7 +116,7 @@ val result5: Option[Int] = for {
 What if we want the function to provide the error message instead. We can use `Either[String, Int]`.
 ``` scala
 def divide(a: Int, b: Int): Either[String, Int] = 
-  if (b == 0) Left[Int]("/ by zero") else Right[String](a / b)
+  if (b == 0) Left("/ by zero") else Right(a / b)
 
 def extract(result: Either[String, Int]): Unit = result match {
   case Right(x)  => println(s"The result is $x")
@@ -154,11 +154,9 @@ def divide(a: Int, b: Int): Either[String, Int] =
 
 This is the best solution compare to the other solutions presented albeit it is more complicated and require more reading into the topic. The code is better managed as we add more code to meet the new requirements. However, this is not the point of this article.
 
-
-
-## The Point Is...
+## And The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MTY5NDM0NiwxMzMwNTI0NDM0LC05NT
+eyJoaXN0b3J5IjpbMTczNzEyMjA5MSwxMzMwNTI0NDM0LC05NT
 AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
