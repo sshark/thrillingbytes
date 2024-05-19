@@ -152,12 +152,12 @@ def divide(a: Int, b: Int): Either[String, Int] =
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
-This is the best approach compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
+This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 ## And The Point Is...
-I do hope you agree using effect is a better
+I do hope you agree using effect is the best approach. But, what does this approach has to do with Monad? 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3OTA2NTEzNCwxNzM3MTIyMDkxLDEzMz
-A1MjQ0MzQsLTk1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0
-ODE2XX0=
+eyJoaXN0b3J5IjpbMjcwNjc2MzcxLDE3MzcxMjIwOTEsMTMzMD
+UyNDQzNCwtOTUwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4
+MTZdfQ==
 -->
