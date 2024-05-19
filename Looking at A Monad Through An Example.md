@@ -55,9 +55,9 @@ In retrospective, it looks like throwing an exception seems to be the way forwar
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, we are back to writing our code the Java style with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^1].
+The responbility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, we are back to writing our code the Java style with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^canThrow].
 
-[^1]: Scala 3 is experimenting with the selective checking exception using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
+[^canThrow]: Scala 3 is experimenting with the selective checking exception using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
 
 ## The Better Answer, Use An Effect
 Effect in this context is a *container* or a container with some capabilities. Effect is not *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
@@ -159,7 +159,7 @@ I do hope you agree using effect is the best approach to this issue. But, what d
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2MDUzNTg3Niw3NTgxMzI3MTUsMTczNz
+eyJoaXN0b3J5IjpbMTM2Nzg4NTI0OCw3NTgxMzI3MTUsMTczNz
 EyMjA5MSwxMzMwNTI0NDM0LC05NTAyMzU4ODYsMTM4MTQ4MjI3
 MSwtMjExODQ0NDgxNl19
 -->
