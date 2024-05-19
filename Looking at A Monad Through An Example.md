@@ -116,11 +116,20 @@ val result5: Option[Int] = for {
 Going further, what if we want the function to provide the error message instead. We can use `Either[String, Int]`.
 ``` scala
 def divide(a: Int, b: Int): Either[String, Int] = 
-  if (b == 0) Left[Int]("/ by zero
-  else Some(a / b)
+  if (b == 0) Left[Int]("/ by zero") else Right[String](a / b)
+
+val result6: Either[String, Int] = for {
+  x <- divide(10, 2)
+} yield add(10, x)
+
+val result7: Either[String, Int] = for {
+  x <- divide(10, 2)
+} yield add(10, x)
+
+  
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3NTUyNjIwLC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTkwNDQxMDExMSwtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
