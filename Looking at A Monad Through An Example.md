@@ -93,20 +93,20 @@ One thing to take note is don't be eager to extract the values from the effect u
 ``` scala
 val result3: Option[Int] = for {
   x <- divide(10, 2)
-  y <- add(10, x)
+  y <- Some(add(10, x))
 } yield y
 
 extract(result3)	// The result is 15
 
 val result4: Option[Int] = for {
   x <- divide(10, 0)
-  y <- add(10, x)
+  y <- Some(add(10, x))
 } yield y
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  `divide(...)` call is a success or failure. 
+It is not necessarily for the developer to check if  `divide(...)` call is a success or failure. The result will flow to the next line ie 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MzUxNDQ3MywxMzgxNDgyMjcxLC0yMT
-E4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbMjU2MTEyNzg4LDEzODE0ODIyNzEsLTIxMT
+g0NDQ4MTZdfQ==
 -->
