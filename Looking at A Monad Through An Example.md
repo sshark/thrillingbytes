@@ -137,7 +137,7 @@ extract(result7)	// Error: / by zero
 ```
 
 
-> Sidebar
+> _Sidebar_
 > As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 >As metioned before, an effect is a container with capabilities: -
 >1. `Option` provides a value or no value (empty) capability.
@@ -148,6 +148,6 @@ extract(result7)	// Error: / by zero
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ4NTc3MzQ1LDEzMzA1MjQ0MzQsLTk1MD
-IzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbLTkzMjkyNDc5MywxMzMwNTI0NDM0LC05NT
+AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
