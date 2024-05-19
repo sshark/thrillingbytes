@@ -41,7 +41,7 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
     if (result._1 == null) {   // C
         println(s"The result of 10 / 2 is ${result._2}")
     } else {
-        println("Cannot be divied by zero")
+        println("Cannot be divided by zero")
     }
 ```
 Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `divide(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
@@ -53,10 +53,10 @@ In retrospective, it looks like throwing an exception seems to be the way forwar
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the 
+The responbility lies with the caller to catch the exception if anything goes bad
 
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjcyNzE1NTJdfQ==
+eyJoaXN0b3J5IjpbLTEyODM5MjAzOTldfQ==
 -->
