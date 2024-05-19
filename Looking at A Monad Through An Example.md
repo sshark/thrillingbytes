@@ -135,9 +135,9 @@ val result7: Either[String, Int] = for {
 
 extract(result7)	// Error: / by zero
 ```
-As we discover later on, we can use other data types like `Try` or `IO` from [Cats Effect](https://typelevel.org/cats-effect/). 
+As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYyMzk2ODg4LC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTI2OTQwNTE2NywtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
