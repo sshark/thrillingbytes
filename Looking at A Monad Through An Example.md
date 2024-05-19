@@ -137,13 +137,13 @@ extract(result7)	// Error: / by zero
 ```
 As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 
-As metioned before, an effect is a contain with its capabilities: -
+As metioned before, an effect is a container with capabilities: -
 1. `Option` provides a value or no value (empty) capability.
 2. `List` provides a list of values or no value (empty) capability.
 3. `Try`, like the `try-catch` block, catches any exception thrown within it.
-4. `IO` is an IO Monad which has many capabilities which include handling side-effetc error handling, parallel computation, and 
+4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MzIyNjM4NCwxMzMwNTI0NDM0LC05NT
-AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTE2MjYxMTU0ODAsMTMzMDUyNDQzNCwtOT
+UwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
