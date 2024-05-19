@@ -91,9 +91,11 @@ extract(result2)	// Cannot be divided by 0
 ```
 One thing to take note is don't be eager to extract the values from the effect unless this is the final call. Let's say, we want to add 10 to the result get from `divide`. We cannot write our code as such `add(10, divide(10, 2)` because `divide(...)` returns an `Option` instead of a `Int`. We have to write our code this way,
 ``` scala
-for {
+val result:for {
   x <- divide(10, 2)
+  y <- add(10, x)
+} yield y  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NjM5Mjc5MCwxMzgxNDgyMjcxLC0yMT
+eyJoaXN0b3J5IjpbMTk1MzcxODc5MiwxMzgxNDgyMjcxLC0yMT
 E4NDQ0ODE2XX0=
 -->
