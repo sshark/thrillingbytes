@@ -113,9 +113,12 @@ val result5: Option[Int] = for {
   x <- divide(10, 2)
 } yield add(10, x)
 ```
-Going further, what if we want to the function to provide the error message
+Going further, what if we want the function to provide the error message instead. We can use `Either[String, Int]`.
+``` scala
+def 
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzk1NDg1NDcsLTk1MDIzNTg4NiwxMz
+eyJoaXN0b3J5IjpbLTE5NDgzMTA3OTMsLTk1MDIzNTg4NiwxMz
 gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
