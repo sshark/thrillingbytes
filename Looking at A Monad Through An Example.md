@@ -6,8 +6,8 @@ There are many articles written about Monad. I want to do it differently explain
 
 Using these 2 functions as my example,
 ``` scala
-def div(a: Int, b: Int) = ???   // A
-def add(a: Int, b: Int) = ???   // B
+def div(a: Int, b: Int) = ???   		// A
+def add(a: Int, b: Int): Int = a + b   	// B
 ```
 
 Function (A) divide the first integer by the second integer. Function (B) adds 2 integer together. These 2 functions are pretty straight forward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameters were `Float`, the function will return `Infinity`, but this is `Int`, it will throw an `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to notify the caller of the exception and fortunately, there is one better answer than all of them discussed here.
@@ -105,10 +105,10 @@ extract(result4)	// Cannot be divided by zero
 ```
 It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [`for-comprehesion`](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
 
-Had function (B
+Had function (B) return the result of type `Option[Int]` instead of `Int`
 
 > 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0NzkwMzgwLC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMTkzOTkxMjg1NCwtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
