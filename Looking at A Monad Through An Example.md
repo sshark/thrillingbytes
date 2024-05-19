@@ -58,7 +58,7 @@ The responbility lies with the caller to catch the exception but the developer d
 [^1]: Scala 3 is experimenting with the exception checking using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
 
 ## The Better Answer, Use An Effect
-Effect in this context is a *container* or a container with some capabilities. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
+Effect in this context is a *container* or a container with some capabilities. Effect is not *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
 ``` scala
 def  div(a: Int, b: Int): Option[Int] = if (b == 0) None else Some(a / b)
 
@@ -66,10 +66,10 @@ val result1: Option[Int] = div(10, 2)	// Some(5)
 val result2: Option[Int] = duv(10, 0)	// None
 
 // print the result
-
+result1 match {
+  case Some(x) => println(s"The result
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDQ4NDA3OTIsLTIxMTg0NDQ4MTZdfQ
-==
+eyJoaXN0b3J5IjpbMTM5MjI5MTM4MiwtMjExODQ0NDgxNl19
 -->
