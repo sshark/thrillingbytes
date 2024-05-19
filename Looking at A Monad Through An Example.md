@@ -53,12 +53,12 @@ In retrospective, it looks like throwing an exception seems to be the way forwar
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception and the developer does not know if a function can and will throw an exception when certain parameteric values are given. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developer very unpleasant. Worse, when we are back to writing our code as before in Java with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^1].
+The responbility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, when we are back to writing our code like before in Java with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^1].
 
 [^1]: Scala 3 is experimenting with the exception checking using the [`CanThrow` capabilities](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html).
 
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDU5OTQyNDNdfQ==
+eyJoaXN0b3J5IjpbLTE3MzUzODEyNjVdfQ==
 -->
