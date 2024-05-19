@@ -17,7 +17,7 @@ For some cases returning an error code is the simplest solution. When the functi
 ``` scala
 def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
-However, this implementation is bad because `-1` could be a legit value for `div(-8, 8)`. To be honest, there is no integer we can use to indicate an error. This method is not viable.
+However, this implementation is bad because `-1` could be a legit value for `div(-8, 8)`. To be honest, there is no integer we can use to indicate an error. Therefore, this method is not viable.
 
 ## A Error And Value Pair
 Next, we split the error and result into a pair,
@@ -103,12 +103,14 @@ val result4: Option[Int] = for {
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [`for-comprehesion`](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
+It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
 
-Had function (B) return the result of type `Option[Int]` instead of `Int`
-
+Had function (B) return the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehesion loop as,
+``` scala
+def 
+```
 > 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzOTkxMjg1NCwtOTUwMjM1ODg2LDEzOD
-E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbOTI4NDM3MjMyLC05NTAyMzU4ODYsMTM4MT
+Q4MjI3MSwtMjExODQ0NDgxNl19
 -->
