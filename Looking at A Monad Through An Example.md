@@ -155,14 +155,14 @@ def divide(a: Int, b: Int): Either[String, Int] =
 This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 ## And The Point Is...
-I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a typeclass[^tc]) has 2 functions `map` and `flatMap` which I want to discuss here and how they work in the for-comprehension loop.
+I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a typeclass[^tc]) `map` and `flatMap` which I want to discuss here and how they work in the for-comprehension loop.
 
 > Sidebar
-> . Functor is also a typeclass which holds the method `map` while Monad owns the method `flatMap`. Since Monad is  
+> Functor is a typeclass too which contains the method `map` while Monad has the method `flatMap`. Since Monad is a subclass of Functor, Monad has `map` and `flatMap` methods.
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMyNjI2MjE5LDc1ODEzMjcxNSwxNzM3MT
-IyMDkxLDEzMzA1MjQ0MzQsLTk1MDIzNTg4NiwxMzgxNDgyMjcx
-LC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbMzU5NzU1MDcsNzU4MTMyNzE1LDE3MzcxMj
+IwOTEsMTMzMDUyNDQzNCwtOTUwMjM1ODg2LDEzODE0ODIyNzEs
+LTIxMTg0NDQ4MTZdfQ==
 -->
