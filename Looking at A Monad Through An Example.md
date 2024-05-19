@@ -140,9 +140,10 @@ As we discover later on, we can use other data types like [`Try`](https://www.sc
 As metioned before, an effect is a contain with its capabilities: -
 1. `Option` provides a value or no value (empty) capability.
 2. `List` provides a list of values or no value (empty) capability.
-3. `Try` like the `try-catch` block provides a way to catch any exception thrown within it.
+3. `Try`, like the `try-catch` block, catches any exception thrown within it.
+4. `IO` is an IO Monad which has many capabilities which include error handling, parallel computation, and 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTQ5NjI0ODIsLTk1MDIzNTg4NiwxMz
-gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbMTMzMDUyNDQzNCwtOTUwMjM1ODg2LDEzOD
+E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 -->
