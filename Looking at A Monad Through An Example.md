@@ -155,9 +155,11 @@ def divide(a: Int, b: Int): Either[String, Int] =
 This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 ## And The Point Is...
-I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a [typeclass](https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op) has 2 functions `map` and `flatMap` I want to discuss here. 
+I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a typeclass[^tc]) has 2 functions `map` and `flatMap` I want to discuss here. 
+
+[^tc]: It is https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTM5NzY2OTksNzU4MTMyNzE1LDE3Mz
-cxMjIwOTEsMTMzMDUyNDQzNCwtOTUwMjM1ODg2LDEzODE0ODIy
-NzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbLTU1MzE1NjA4MCw3NTgxMzI3MTUsMTczNz
+EyMjA5MSwxMzMwNTI0NDM0LC05NTAyMzU4ODYsMTM4MTQ4MjI3
+MSwtMjExODQ0NDgxNl19
 -->
