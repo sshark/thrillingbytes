@@ -49,14 +49,14 @@ Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract
 ## Throwing An Exception
 In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecled `RuntimeException`. In Java, for checked exceptions, the developer has to enclose the function a `try-catch` block. On the other hand, Scala developers use the `try-catch` block if they  want to catch the exception. 
 
-In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement the function using exception,
+In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement function (A) using exception,
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception if anything goes bad. The downside of this is, the developer does not know that the function 
+The responbility lies with the caller to catch the exception if anything goes bad. The downside of this is, the developer does not know that function (A) can and will throw an exception when `b` is zero. This will cause the application that uses function (A) to be unstable or uns
 
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDIzNTI2XX0=
+eyJoaXN0b3J5IjpbLTY0Nzc2MzUwN119
 -->
