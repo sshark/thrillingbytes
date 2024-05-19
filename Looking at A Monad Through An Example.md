@@ -136,7 +136,6 @@ val result7: Either[String, Int] = for {
 extract(result7)	// Error: / by zero
 ```
 
-
 > _Sidebar_
 > As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 >As metioned before, an effect is a container with capabilities: -
@@ -145,9 +144,10 @@ extract(result7)	// Error: / by zero
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
+This is the solution
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzMjkyNDc5MywxMzMwNTI0NDM0LC05NT
+eyJoaXN0b3J5IjpbLTQ0MTYyMjQyMSwxMzMwNTI0NDM0LC05NT
 AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
