@@ -135,9 +135,13 @@ val result7: Either[String, Int] = for {
 
 extract(result7)	// Error: / by zero
 ```
-As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). As metioned before, an effect is a contain
+As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
+
+As metioned before, an effect is a contain with its capabilities: -
+1. `Option` provides a value or no value capability
+2. `List` provides a list of values or no value 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc5MTAxODUwLC05NTAyMzU4ODYsMTM4MT
-Q4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTE0NzY1NjQ5NDcsLTk1MDIzNTg4NiwxMz
+gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
