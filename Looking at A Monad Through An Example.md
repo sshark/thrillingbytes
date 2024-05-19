@@ -136,6 +136,14 @@ val result7: Either[String, Int] = for {
 extract(result7)	// Error: / by zero
 ```
 
+We can make use of exception and `Either` to simply `divide(...)`.
+``` scala
+def divide(a: Int, b: Int): Either[String, Int] = 
+  try {
+    Right(a / b)
+  } catch {case e: ArithmeticException => Left(e.getMessage)
+```
+
 > _Sidebar_
 > As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/2.13.6/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
 >As metioned before, an effect is a container with capabilities: -
@@ -146,18 +154,11 @@ extract(result7)	// Error: / by zero
 
 This is the best solution compare to the other solutions presented albeit it is more complicated and require more reading into the topic. The code is better managed as we add more code to meet the new requirements. However, this is not the point of this article.
 
-Before we move to the next section, we can make use of exception and `Either` to simply the code.
-``` scala
-def divide(a: Int, b: Int): Either[String, Int] = 
-  try {
-    Right[String](a / b)
-  } catch {case e: ArithmeticException => Left[Int](
 
-```
 
 ## The Point Is...
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NzczOTY5MywxMzMwNTI0NDM0LC05NT
+eyJoaXN0b3J5IjpbLTY3MTY5NDM0NiwxMzMwNTI0NDM0LC05NT
 AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
