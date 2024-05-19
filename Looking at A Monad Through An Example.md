@@ -98,15 +98,15 @@ val result3: Option[Int] = for {
 
 extract(result3)	// The result is 15
 
-val result3: Option[Int] = for {
+val result4: Option[Int] = for {
   x <- divide(10, 0)
   y <- add(10, x)
 } yield y
 
-extract(result3)	// Cannot be divided by zero
+extract(result4)	// Cannot be divided by zero
 ```
-
+The developer need not check if  `divide(...)` 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NzgyNTUwLDEzODE0ODIyNzEsLTIxMT
-g0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbLTc5OTk5NzQxMywxMzgxNDgyMjcxLC0yMT
+E4NDQ0ODE2XX0=
 -->
