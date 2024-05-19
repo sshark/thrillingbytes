@@ -53,10 +53,10 @@ In retrospective, it looks like throwing an exception seems to be the way forwar
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception if anything goes bad. The downside of this is, the developer does not know that function (A) can and will throw an exception when `b` is zero. This will cause the application that uses function (A) to be unusable or unstable at best if the exception is not caught in its place. 
+The responbility lies with the caller to catch the exception and the developer does not know that function (A) can and will throw an exception when `b` is zero. This will cause the application that uses function (A) to be unusable or unstable at best if the exception is not caught in its place. This is bad. Worse, if we back to writing our code as before with `try-catch` or `try-catch-finally`
 
 ## The Better Answer, Use An Effect
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDYzMTM5MV19
+eyJoaXN0b3J5IjpbLTU0NzkwNjE3Ml19
 -->
