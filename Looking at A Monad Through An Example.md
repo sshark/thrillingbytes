@@ -81,7 +81,7 @@ result2 match {
 
 Like before we can apply DRY principle here,
 ```  scala
-def extract(result: Option[Int]): Unit = {
+def extract(result: Option[Int]): Unit = result match {
   case Some(x) => println(s"The result is $x")
   case None    => println("Cannot be divided by 0")
 }
@@ -126,12 +126,10 @@ val result6: Either[String, Int] = for {
 
 val result7: Either[String, Int] = for {
   x <- divide(10, 0)
-} yield add(10, x)
-
-  
+} yield add(10, x)  
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyODc5MTY3OCwtOTUwMjM1ODg2LDEzOD
-E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbLTE3NDA4MzI5MDIsLTk1MDIzNTg4NiwxMz
+gxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
