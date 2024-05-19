@@ -141,9 +141,9 @@ As metioned before, an effect is a contain with its capabilities: -
 1. `Option` provides a value or no value (empty) capability.
 2. `List` provides a list of values or no value (empty) capability.
 3. `Try`, like the `try-catch` block, catches any exception thrown within it.
-4. `IO` is an IO Monad which has many capabilities which include error handling, parallel computation, and 
+4. `IO` is an IO Monad which has many capabilities which include handling side-effetc error handling, parallel computation, and 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMDUyNDQzNCwtOTUwMjM1ODg2LDEzOD
-E0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
+eyJoaXN0b3J5IjpbMTk3MzIyNjM4NCwxMzMwNTI0NDM0LC05NT
+AyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
