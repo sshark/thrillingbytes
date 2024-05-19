@@ -2,7 +2,7 @@
 # Looking at A Monad Through An Example
 There are many articles written about Monad. I want to do it differently explaining why does a Monad do and why it is useful to use Monad. Let's us begin right away.
 
-*The code snippet in this article is using Scala 2 / 3 syntax*
+*The code snippet in this article is using Scala syntax*
 
 Using these 2 functions as my example,
 ``` scala
@@ -37,7 +37,7 @@ val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 // repeat the same code as (C) with error1 replace by error2 and so forth
 ```
 
-The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
+The second part of the extraction logic conflicts with [DRY] (https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
 ``` scala
 def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
     if (result._1 == null) {   // C
@@ -78,16 +78,18 @@ result2 match {
   case None    => println("Cannot be divided by zero")
 }
 ```
-Like before we can apply DRY here,
+
+Like before we can apply DRY principle here,
 ```  scala
 def extract(result: Option[Int]): Unit = {
   case Some(x) => println(s"The result of 10 / 0 is $x")
   case None    => println("Cannot be divided by zero")
 }
+
+extract(reu
 ```
 
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNDA4NTkyOCwxMzgxNDgyMjcxLC0yMT
-E4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbNTg4NzQ5NzgzLDEzODE0ODIyNzEsLTIxMT
+g0NDQ4MTZdfQ==
 -->
