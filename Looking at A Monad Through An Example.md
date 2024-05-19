@@ -2,6 +2,8 @@
 # Looking at A Monad Through An Example
 There are many articles written about Monad. I want to do it differently explaining why does a Monad do and why it is useful to use Monad. Let's us begin right away.
 
+*The code snippet in this article is using Scala 2 / 3 syntax*
+
 Using these 2 functions as my example,
 ``` scala
 def div(a: Int, b: Int) = ???   // A
@@ -55,7 +57,7 @@ def  div(a: Int, b: Int): Int = a / b
 ```
 The responbility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, we are back to writing our code the Java style with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^1].
 
-[^1]: Scala 3 is experimenting with the exception checking using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
+[^1]: Scala 3 is experimenting with the selective checking exception using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capabilities.
 
 ## The Better Answer, Use An Effect
 Effect in this context is a *container* or a container with some capabilities. Effect is not *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
@@ -69,14 +71,23 @@ val result2: Option[Int] = duv(10, 0)	// None
 result1 match {
   case Some(x) => println(s"The result of 10 / 2 is $x")
   case None    => println("Cannot be divided by zero")
+}
 
 result2 match {
   case Some(x) => println(s"The result of 10 / 0 is $x")
   case None    => println("Cannot be divided by zero")
+}
 ```
-Like before we can apply DRY here
+Like before we can apply DRY here,
+```  scala
+def extract(result: Option[Int]): Unit = {
+  case Some(x) => println(s"The result of 10 / 0 is $x")
+  case None    => println("Cannot be divided by zero")
+}
+```
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTcwNDA4NTkyOCwxMzgxNDgyMjcxLC0yMT
+E4NDQ0ODE2XX0=
 -->
