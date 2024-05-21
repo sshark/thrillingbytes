@@ -13,7 +13,7 @@ def add(a: Int, b: Int): Int = a + b   	// B
 Function (A) divide the first integer by the second integer. Function (B) adds 2 integer together. These 2 functions are pretty straight forward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameters were `Float`, the function will return `Infinity`, but this is `Int`, it will throw an `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to notify the caller of the exception and fortunately, there is one better answer than all of them discussed here.
 
 ## Returning An Error Code
-For some cases returning an error code is the simplest solution. When the function fails, it will am error code to indicate what went wrong. Case in point, for function (A), if parameter `b` is zero, it will fail and return `-1` given the following implementation,
+For some cases returning an error code is the simplest solution. When the function fails, it returns an error code to indicate failure. Case in point, for function (A), if parameter `b` is zero, it fails and returns `-1` given the following implementation,
 ``` scala
 def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
@@ -162,7 +162,7 @@ I do hope you agree using effect is the best approach to this issue. But, what d
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTU3MDI3ODgsMTg5MzA3NDcwMCw3NT
-gxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0NDM0LC05NTAyMzU4
-ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbMjEzNjYwMjM0OSwxODkzMDc0NzAwLDc1OD
+EzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0MzQsLTk1MDIzNTg4
+NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
