@@ -37,7 +37,7 @@ val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 // repeat the same code as (C) with error1 replace by error2 and so forth
 ```
 
-The second part of the extraction logic conflicts with [DRY] (https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
+The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
 ``` scala
 def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
     if (result._1 == null) {   // C
@@ -164,7 +164,8 @@ I do hope you agree using effect is the best approach to this issue. But, what d
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1OD
-EzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0MzQsLTk1MDIzNTg4
-NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbLTU4MjM1MTYwMSwxNTAxMjk0MDI1LDE4OT
+MwNzQ3MDAsNzU4MTMyNzE1LDE3MzcxMjIwOTEsMTMzMDUyNDQz
+NCwtOTUwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MTZdfQ
+==
 -->
