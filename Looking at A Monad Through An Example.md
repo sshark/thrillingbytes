@@ -157,12 +157,14 @@ This is the best solution compares to the other solutions presented here albeit 
 ## And The Point Is...
 I do hope you agree using effect is the best approach to this issue. But, what does this approach has to do with Monad? Monad is a typeclass[^tc]) that has the`map` and `flatMap` methods. I want to discuss these methods and how they work in the for-comprehension loop.
 
+
+
 > **Sidebar**\
 > Functor is a typeclass too which contains the method `map` while Monad holds the method `flatMap`. Since Monad is a subclass of Functor, Monad has both `map` and `flatMap` methods.
 
 [^tc]: It is imperative to understand what typeclass is and how does it functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNjYwMjM0OSwxODkzMDc0NzAwLDc1OD
+eyJoaXN0b3J5IjpbMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1OD
 EzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0MzQsLTk1MDIzNTg4
 NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 -->
