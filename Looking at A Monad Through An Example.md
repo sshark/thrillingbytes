@@ -46,7 +46,7 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
         println("Cannot be divided by zero")
     }
 ```
-Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `divide(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
+Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `div(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
 
 ## Throwing An Exception
 In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecked `RuntimeException`. In Java, functions that throw checked exceptions are enclosed in a `try-catch` block. On the other hand, Scala developers use the `try-catch` block to catch the exception they want to catch. 
@@ -89,33 +89,33 @@ def extract(result: Option[Int]): Unit = result match {
 extract(result1)	// The result is 5
 extract(result2)	// Cannot be divided by 0
 ```
-One thing to take note is don't be eager to extract the values from the effect unless this is the final call. Let's say, we want to add 10 to the result get from `divide`. We cannot write our code as such `add(10, divide(10, 2)` because `divide(...)` returns an `Option` instead of a `Int`. We have to write our code this way,
+One thing to take note is don't be eager to extract the values from the effect unless this is the final call. Let's say, we want to add 10 to the result get from `divide`. We cannot write our code as such `add(10, div(10, 2)` because `div(...)` returns an `Option` instead of a `Int`. We have to write our code this way,
 ``` scala
 val result3: Option[Int] = for {
-  x <- divide(10, 2)
+  x <- div(10, 2)
 } yield Some(add(10, x))
 
 extract(result3)	// The result is 15
 
 val result4: Option[Int] = for {
-  x <- divide(10, 0)
+  x <- div(10, 0)
 } yield Some(add(10, x))
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  the call to `divide(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
+It is not necessarily for the developer to check if  the call to `div(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
 
 Had function (B) return the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehesion loop as,
 ``` scala
 def add(a: Int, b: Int): Option[Int] = Some(a + b)
 
 val result5: Option[Int] = for {
-  x <- divide(10, 2)
+  x <- div(10, 2)
 } yield add(10, x)
 ```
 What if we want the function to provide the error message instead. We can use `Either[String, Int]`.
 ``` scala
-def divide(a: Int, b: Int): Either[String, Int] = 
+def div(a: Int, b: Int): Either[String, Int] = 
   if (b == 0) Left("/ by zero") else Right(a / b)
 
 def extract(result: Either[String, Int]): Unit = result match {
@@ -124,21 +124,21 @@ def extract(result: Either[String, Int]): Unit = result match {
 }
 
 val result6: Either[String, Int] = for {
-  x <- divide(10, 2)
+  x <- div(10, 2)
 } yield add(10, x)
 
 extract(result6)	// The result is 5
 
 val result7: Either[String, Int] = for {
-  x <- divide(10, 0)
+  x <- div(10, 0)
 } yield add(10, x)  
 
 extract(result7)	// Error: / by zero
 ```
 
-We can make use of exception and `Either` to simply `divide(...)`.
+We can make use of exception and `Either` to simply `div(...)`.
 ``` scala
-def divide(a: Int, b: Int): Either[String, Int] = 
+def div(a: Int, b: Int): Either[String, Int] = 
   try {
     Right(a / b)
   } catch {case e: ArithmeticException => Left(e.getMessage)
@@ -163,13 +163,13 @@ A Monad is a typeclass[^tc] that has a few functions. In the interest of this ar
 In Scala, the for-comprehension loop is a synatic sugar for a series of `flatMap` and `map`e.g.,
  ``` scala
 val result8: Option[Int] = for {
-  x <- divide(10, 2)
+  x <- div(10, 2)
   y <- Option(x - 10)
 } yield add(10, y)
 
 // loosely converted to
 
-val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
+val result8: Option[Int] = div(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 ```
 
 Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities. Please refer to [here](https://gist.github.com/sshark/6a169bedfa97718dd72eb0738fbb046f) for the `MyBox` Monad typeclass implemention and example.
@@ -177,11 +177,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNz
-I2ODQ2OTksLTEwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2
-OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLT
-E0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0
-MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5MzA3ND
-cwMCw3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0NDM0LC05
-NTAyMzU4ODZdfQ==
+eyJoaXN0b3J5IjpbLTg1MTAzNjU2MywyNTMzNzgyNzksLTI1ND
+g0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3
+Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LD
+IwNzg0NDA4NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5
+NDAxOTg1LC0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5ND
+AyNSwxODkzMDc0NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEz
+MzA1MjQ0MzRdfQ==
 -->
