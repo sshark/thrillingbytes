@@ -82,13 +82,13 @@ One thing to take note is don't be eager to extract the values from the effect u
 ``` scala
 val result3: Option[Int] = for {
   x <- div(10, 2)
-} yield Some(add(10, x))
+} yield add(10, x)
 
 extract(result3)	// The result is 15
 
 val result4: Option[Int] = for {
   x <- div(10, 0)
-} yield Some(add(10, x))
+} yield add(10, x)
 
 extract(result4)	// Cannot be divided by zero
 ```
@@ -100,7 +100,8 @@ def add(a: Int, b: Int): Option[Int] = Some(a + b)
 
 val result5: Option[Int] = for {
   x <- div(10, 2)
-} yield add(10, x)
+  y <- add(10, x)
+} yield y
 ```
 What if we want the function to provide the error message instead. We can use `Either[String, Int]`.
 ``` scala
@@ -166,7 +167,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MTY5MTgzMSwxMTg5MzU2NzU3LC0xOT
+eyJoaXN0b3J5IjpbMTIwOTczNDc5NCwxMTg5MzU2NzU3LC0xOT
 IxNjk3NjgyLC0zNjM4MTIwMjIsMTg4ODAwNTM2NiwxODcxNTc1
 MTY3LDI0Mjc1NTQ4MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwtMj
 U0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3
