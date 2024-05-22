@@ -155,7 +155,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
 This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with a Monad? This is one of man
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected egevents a
 
 > **Sidebar**\
 > A Monad is a typeclass[^tc] that conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) has the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -178,7 +178,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODU5MjE5ODcsMjE0NDc3NzM3NCwtNz
+eyJoaXN0b3J5IjpbLTExODMyOTQ2ODIsMjE0NDc3NzM3NCwtNz
 A1NTY2OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQw
 ODQsLTE0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NS
 wtMTA0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5
