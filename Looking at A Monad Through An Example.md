@@ -158,11 +158,10 @@ This is the best solution compares to the other solutions presented here albeit 
 I hope you do agree using effect is the best approach to resolve this issue. But, what does this has to do with Monad? 
 
 > **Sidebar**\
-> A Monad is a typeclass[^tc] has the combined `map` and `flatMap` methods where `map` comes from the Functor.  A Monad is a subclass of Applicatov Functor.
-
-In Scala, the for-comprehension loop is a synatic sugar for a series of `flatMap` and `map`e.g.,
-``` scala
-val result8: Option[Int] = for {
+> A Monad is a typeclass[^tc] has the combined `map` and `flatMap` methods where `map` comes from the Functor.  A Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
+> In Scala, the for-comprehension loop is a synatic sugar for a series of `flatMap` and `map`e.g.,
+> ``` scala
+> val result8: Option[Int] = for {
   x <- divide(10, 2)
   y <- Option(x - 10)
 } yield add(10, y)
@@ -175,7 +174,7 @@ val result8 = divide(10,2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NzE0MzAxMiwyMDc4NDQwODQsLTE0OD
+eyJoaXN0b3J5IjpbMjA0Nzc2MjQzMCwyMDc4NDQwODQsLTE0OD
 g1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0Mjgz
 NjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5MzA3NDcwMC
 w3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0NDM0LC05NTAy
