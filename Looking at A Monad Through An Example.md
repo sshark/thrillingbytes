@@ -36,7 +36,7 @@ if (error1 == null) {   // C
 
 val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 
-// repeat the same code block (C) with error1 replace by error2
+// repeat the (C) if-else with error1 replace by error2
 ```
 
 The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ5MDA0NzEsLTM2MzgxMjAyMiwxODg4MD
-A1MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMs
-MjUzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNz
-M5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQwMjc1
-Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2NzIsLT
-IxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0MjgzNjQwMywtNTgy
-MzUxNjAxXX0=
+eyJoaXN0b3J5IjpbLTU1ODU2OTU4OCwtMzYzODEyMDIyLDE4OD
+gwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2
+MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMT
+A3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAy
+NzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3Mi
+wtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2NDAzLC01
+ODIzNTE2MDFdfQ==
 -->
