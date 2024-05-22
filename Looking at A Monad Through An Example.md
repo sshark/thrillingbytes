@@ -1,6 +1,6 @@
 
 # Looking at A Monad Through An Example
-There are many articles written about Monad. I want to explain from the practical prespective what a Monad does and why it is useful using an example. Let's begin right away.
+There are many articles written about Monad. I want to explain from the practical prespective using an example and then  show what a Monad is. Let's begin right away.
 
 *The code snippet in this article is using Scala 3 syntax*
 
@@ -177,7 +177,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzE2MjY0NjgsMjQyNzU1NDgyLC04NT
+eyJoaXN0b3J5IjpbLTIwMTQ0NTQ4OTAsMjQyNzU1NDgyLC04NT
 EwMzY1NjMsMjUzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2
 OTksLTEwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC
 0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1
