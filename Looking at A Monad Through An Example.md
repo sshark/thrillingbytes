@@ -159,20 +159,20 @@ I hope you do agree using effect is the best approach to resolve this issue. But
 ``` scala
 val result5: Option[Int] = for {
   x <- divide(10, 2)
-  y 
-} yield add(10, x)
+  y <- Option(x - 10)
+} yield add(10, y)
 
 // equivalent to
 
-divide(10,2).flatMap(x => add
+divide(10,2).flatMap(x => Option(x - 10).map(
 ```
 > **Sidebar**\
 > Functor is a typeclass too which contains the method `map` while Monad holds the method `flatMap`. Since Monad is a subclass of Functor, Monad has both `map` and `flatMap` methods.
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NjkyNzM0NiwtNDI5NDAxOTg1LC0xMD
-QyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkzMDc0
-NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0MzQsLT
-k1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbLTEyMTEyMTAxNTMsLTQyOTQwMTk4NSwtMT
+A0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5MzA3
+NDcwMCw3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0NDM0LC
+05NTAyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
 -->
