@@ -155,8 +155,8 @@ def divide(a: Int, b: Int): Either[String, Int] =
 ## And The Point Is...
 Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else`.  The same monadic approach can be used to solve other issues in a similar way used here to manage bad input. However, it can be complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. Thank you for reading.
 
-## Additional Notes on Typeclass (Optional)
-A Monad is a typeclass[^tc] has the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
+## Notes on Typeclass (Optional)
+A Monad is a typeclass[^tc] with the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
  
@@ -174,8 +174,10 @@ val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => ad
 
 Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities.
 
+that conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5OTM3OTAwNCwyMTQ0Nzc3Mzc0LC03MD
+eyJoaXN0b3J5IjpbLTQ1NzEyMjIzMywyMTQ0Nzc3Mzc0LC03MD
 U1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4
 NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC
 0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkz
