@@ -70,19 +70,6 @@ val result1: Option[Int] = div(10, 2)	// Some(5)
 val result2: Option[Int] = duv(10, 0)	// None
 
 // print the result
-result1 match {
-  case Some(x) => println(s"The result of 10 / 2 is $x")
-  case None    => println("Cannot be divided by zero")
-}
-
-result2 match {
-  case Some(x) => println(s"The result of 10 / 0 is $x")
-  case None    => println("Cannot be divided by zero")
-}
-```
-
-Like before we can apply DRY principle here,
-```  scala
 def extract(result: Option[Int]): Unit = result match {
   case Some(x) => println(s"The result is $x")
   case None    => println("Cannot be divided by 0")
@@ -179,11 +166,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg4MTE1NDA1LC0xOTIxNjk3NjgyLC0zNj
-M4MTIwMjIsMTg4ODAwNTM2NiwxODcxNTc1MTY3LDI0Mjc1NTQ4
-MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwtMjU0ODQ3OTE2LC0xMT
-cyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2
-NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0LC
-0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLTEw
-NDI4MzY0MDNdfQ==
+eyJoaXN0b3J5IjpbMTE4OTM1Njc1NywtMTkyMTY5NzY4MiwtMz
+YzODEyMDIyLDE4ODgwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0
+ODIsLTg1MTAzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMT
+E3MjY4NDY5OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1
+NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NC
+wtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0x
+MDQyODM2NDAzXX0=
 -->
