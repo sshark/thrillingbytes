@@ -153,7 +153,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else`.  The monadic approach can be used to solve other issues the way 
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else`.  The same monadic approach can be used to solve other issues the way it used here to manage bad 
 However, is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 > **Sidebar**\
@@ -177,11 +177,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjk3OTE3MTYsMjE0NDc3NzM3NCwtNz
-A1NTY2OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQw
-ODQsLTE0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NS
-wtMTA0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5
-MzA3NDcwMCw3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0ND
-M0LC05NTAyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl19
+eyJoaXN0b3J5IjpbLTI2NDczMjk5NywyMTQ0Nzc3Mzc0LC03MD
+U1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4
+NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC
+0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkz
+MDc0NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0Mz
+QsLTk1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
 
 -->
