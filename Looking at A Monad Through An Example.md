@@ -62,7 +62,7 @@ The responbility lies with the caller to catch the exception but the developer d
 [^canThrow]: Scala 3 is experimenting with the selective checked exception capture using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capability.
 
 ## The Better Answer, Use An Effect
-Effect in this context is a *container* or a container with some capabilities. Effect is not *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
+Effect in this context is a *container* or a container with some capabilities. Effect is not a *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
 ``` scala
 def  div(a: Int, b: Int): Option[Int] = if (b == 0) None else Some(a / b)
 
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxOD
-g4MDA1MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1
-NjMsMjUzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLT
-EwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQw
-Mjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2Nz
-IsLTIxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0MjgzNjQwMywt
-NTgyMzUxNjAxXX0=
+eyJoaXN0b3J5IjpbOTg4MTE1NDA1LC0xOTIxNjk3NjgyLC0zNj
+M4MTIwMjIsMTg4ODAwNTM2NiwxODcxNTc1MTY3LDI0Mjc1NTQ4
+MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwtMjU0ODQ3OTE2LC0xMT
+cyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2
+NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0LC
+0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLTEw
+NDI4MzY0MDNdfQ==
 -->
