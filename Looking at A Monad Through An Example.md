@@ -172,12 +172,12 @@ val result8: Option[Int] = for {
 val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 ```
 
-Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities.
+Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities. The boilerplates 
 
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NDY2ODA0MywtMTE3MjY4NDY5OSwtMT
+eyJoaXN0b3J5IjpbMTg0NjI2ODU5NiwtMTE3MjY4NDY5OSwtMT
 A3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAy
 NzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3Mi
 wtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2NDAzLC01
