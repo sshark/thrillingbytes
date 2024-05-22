@@ -158,7 +158,7 @@ This is the best solution compares to the other solutions presented here albeit 
 Using effect is a good approach to resolve this issue. But, what does this has to do with a Monad? 
 
 > **Sidebar**\
-> A Monad, a typeclass[^tc], has the combined `map` and `flatMap` methods where `map` comes from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
+> A Monad, a typeclass[^tc] that conform to Monad Law, has the combined `map` and `flatMap` methods where `map` comes from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
 > 
 > In Scala, the for-comprehension loop is a synatic sugar for a series of `flatMap` and `map`e.g.,
 > ``` scala
@@ -175,10 +175,10 @@ Using effect is a good approach to resolve this issue. But, what does this has t
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTkwNzgwMTMyLDM1Njc1NzU3NiwyMDc4ND
-QwODQsLTE0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4
-NSwtMTA0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMT
-g5MzA3NDcwMCw3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0
-NDM0LC05NTAyMzU4ODYsMTM4MTQ4MjI3MSwtMjExODQ0NDgxNl
-19
+eyJoaXN0b3J5IjpbLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNz
+g0NDA4NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAx
+OTg1LC0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNS
+wxODkzMDc0NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEzMzA1
+MjQ0MzQsLTk1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0OD
+E2XX0=
 -->
