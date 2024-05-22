@@ -21,7 +21,7 @@ def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
 However, this is bad implementation because `-1` could be a legit value for `div(-8, 8)`. To be honest, there is no integer we can use to indicate an error. Therefore, this method is not viable.
 
-## A Error And Value Pair
+## A Error And Result Pair
 Next, we split the error and result into a pair,
 ``` scala
 def  div(a: Int, b: Int): (String, Int) = if (b == 0) ("/ by zero", 0) else (null, a / b)
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzU4OTQxMjgsMTg4ODAwNTM2NiwxOD
-cxNTc1MTY3LDI0Mjc1NTQ4MiwtODUxMDM2NTYzLDI1MzM3ODI3
-OSwtMjU0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcxODgxLD
-IxNDQ3NzczNzQsLTcwNTU2NjkzMSwtMjA0MDI3NTY3NSwzNTY3
-NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mz
-g1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMSwx
-NTAxMjk0MDI1XX0=
+eyJoaXN0b3J5IjpbNTI5ODU2OTQsMTg4ODAwNTM2NiwxODcxNT
+c1MTY3LDI0Mjc1NTQ4MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwt
+MjU0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcxODgxLDIxND
+Q3NzczNzQsLTcwNTU2NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1
+NzYsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC
+00Mjk0MDE5ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMSwxNTAx
+Mjk0MDI1XX0=
 -->
