@@ -153,7 +153,7 @@ def div(a: Int, b: Int): Either[String, Int] =
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between expected and unexpected (bad) events without deeply nested `if-else-then` branches.  The same monadic approach can be used to solve other issues in a similar fashion seen here on  handle bad parameter. However, the topic can be complicated and require more reading. The payoff is making the code better managed as more code is added to tackle new requirements. Thank you for reading.
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between expected and unexpected (bad) events without deeply nested `if-else-then` branches.  The same monadic approach can be used to solve other issues in a similar fashion seen here handling bad parameter. However, the topic can be complicated and require more reading. The payoff is making the code better managed as more code is added to tackle new requirements. Thank you for reading.
 
 ## For-Comprehension And Typeclass (Optional)
 A Monad is a typeclass[^tc] that has a few functions. In the interest of this article, the focus is on the `map` and `flatMap` functions.  `map` is inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -177,11 +177,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzY1NTU5MjQsLTg1MTAzNjU2MywyNT
-MzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3
-MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2Nz
-UsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3MiwtMjEy
-MjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2NDAzLC01ODIzNT
-E2MDEsMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1ODEzMjcxNSwx
-NzM3MTIyMDkxXX0=
+eyJoaXN0b3J5IjpbMTMwNTYwNjc5OCwtODUxMDM2NTYzLDI1Mz
+M3ODI3OSwtMjU0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcx
+ODgxLDIxNDQ3NzczNzQsLTcwNTU2NjkzMSwtMjA0MDI3NTY3NS
+wzNTY3NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIy
+NDc2Mzg1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MDMsLTU4MjM1MT
+YwMSwxNTAxMjk0MDI1LDE4OTMwNzQ3MDAsNzU4MTMyNzE1LDE3
+MzcxMjIwOTFdfQ==
 -->
