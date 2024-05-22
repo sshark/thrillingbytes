@@ -89,17 +89,17 @@ The default value of type T as follow:
  - () if T is `Unit`
  - `null` for the rest of T types for given
 ```scala
-		trait NutritionalInfo {
-			type T <: AnyVal
-			var value: T = ...
-		}
+trait NutritionalInfo {
+  type T <: AnyVal
+ var value: T = ...
+}
 		
-	val containsSugar = new NutritionalInfo { 
-	  type T = Boolean 
-	}
-		
-		println(containsSugar.value)     // null
-	    println(!containsSugar.value)   // false
+val containsSugar = new NutritionalInfo { 
+  type T = Boolean 
+}
+	
+println(containsSugar.value)     // null
+println(!containsSugar.value)    // false
 ```	    
 because when attempt is made to negate the value, the compiler knows that it is a `Boolean` to be able to invoke the `unary_!` method. Automatic unboxing i.e. `scala.runtime.BoxesRuntimeUnboxToBoolean` was called.
 
@@ -109,17 +109,18 @@ The compiler refuses to unbox if the value can be treated as an `Any` i.e. `prin
 Overriding implicit of different name but of same type will cause ambiguity and compilation error.
 
 Follow a pattern to avoid this and find similar patterns provided by the library. Case in point,
-
-	class OperatingMode {
-		implicit val ConsoleRender: Scanner.Console {...}
-		implicit val DefaultAlarmHandler: Scanner.AlarmHandler {...}
+``` scala
+class OperatingMode {
+  implicit val ConsoleRender: Scanner.Console {...}
+  implicit val DefaultAlarmHandler: Scanner.AlarmHandler {...}
 	
-	object NormalMode extends OperatingMode 
-	object TestMode extends OperatingMode {
-		override implicit val ConsoleRender: Scanner.Console {...}
-		override implicit val TestAlarmHandler: Scanner.AlarmHandler {...}
-	}
-
+  object NormalMode extends OperatingMode 
+  object TestMode extends OperatingMode {
+    override implicit val ConsoleRender: Scanner.Console {...}
+	override implicit val TestAlarmHandler: Scanner.AlarmHandler {...}
+  }
+...  
+```
 ##Quite The Outspoken Type (Puzzler 30)
 *Function vals* e.g. `val stringToInt: String => Int = _.toInt` take precedence over *defs* during implicit search. Therefore, it caused StackOverflowException in this puzzler because it kept referring to itself instead of `augmentString` method in object `Predef`. Had it has been defined using `def` type mismatch error would have thrown.
 
@@ -171,5 +172,5 @@ The compiler can turn consecutive innovations into a single method call if all a
 So basically the JVM will invoke `curried(1)(2)(3)` as `curried(1, 2, 3)` in one go instead of 3 times.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5NTExODI5Ml19
+eyJoaXN0b3J5IjpbLTE4NTA0ODI3MF19
 -->
