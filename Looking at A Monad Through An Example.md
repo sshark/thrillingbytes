@@ -174,10 +174,10 @@ val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => ad
 
 Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities.
 
-The classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be called a Monad.
+Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. `Option`, `List`, and `Either`etc. are monads because they passed the Monad Law. Classes like `Set` and `Try` are not
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4ODQ4MTgzNSwyMTQ0Nzc3Mzc0LC03MD
+eyJoaXN0b3J5IjpbMTM1MTgwMDk2NCwyMTQ0Nzc3Mzc0LC03MD
 U1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4
 NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC
 0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkz
