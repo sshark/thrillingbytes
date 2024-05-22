@@ -121,32 +121,33 @@ class OperatingMode {
   }
 ...  
 ```
-##Quite The Outspoken Type (Puzzler 30)
+## Quite The Outspoken Type (Puzzler 30)
 *Function vals* e.g. `val stringToInt: String => Int = _.toInt` take precedence over *defs* during implicit search. Therefore, it caused StackOverflowException in this puzzler because it kept referring to itself instead of `augmentString` method in object `Predef`. Had it has been defined using `def` type mismatch error would have thrown.
 
 However, if regular *defs* and *function vals* were treated equally, an ambiguous reference to the overloaded definition would cause an exception. 
 
 *Solution:* prefer *defs* over *function vals* when defining implicit to have ambiguity exception thrown during compilation to catch easy to miss bug.
 
-##A View to Shill (Puzzler 31)
+## A View to Shill (Puzzler 31)
 `mapValues` return a new iterator every time a value is retrieved as in the example. Therefore, *force* each with view before iterate through the sequence using `next()`.
 
-##Set The Record Straight (Puzzler 32)
+## Set The Record Straight (Puzzler 32)
 Methods define without parenthesis may accidentally invoke the `apply(...)` method. Therefore, it is suggested that include empty parenthesis only for method invocations with side-effects.
 
 Beware of unintended type widening caused by methods on collections that allow the element type of a returned collection to be wider than original type.
 
-##The Devil Is in The Detail (Puzzler 33)
+## The Devil Is in The Detail (Puzzler 33)
 Use `Map.withDefaultValue` for immutable defaults only other use `Map.withDefault`.  `withDefaultValue` returns the same instance across all map entries. `withDefault { _ => Buffer(100)}` to create new instances as in this example.
 
-##A Listful of Dollars (Puzzler 35)
-	type Dollar = Int
-	final val Dollar: Dollar = 1
-	val a: List[Dollar] = List(1, 2, 3)
-	
-	println(a map { a: Int => Dollar })
-	println(a.map(a: Int => Dollar))  // (2)
+## A Listful of Dollars (Puzzler 35)
+``` scala
+type Dollar = Int
+final val Dollar: Dollar = 1
+val a: List[Dollar] = List(1, 2, 3)
 
+println(a map { a: Int => Dollar })
+println(a.map(a: Int => Dollar))  // (2)
+```
 This entry is to highlight the difference of using curly brackets and brackets within a function e.g. `map(...)`. So, a type declaration in an "Expr" that is not enclosed in parentheses, as in our case, is treated as a type ascription to the entire expression. In other words:
 
 - `{ a: Int => Dollar }` is parsed as `{ (a: Int) => Dollar }`, with Int being the type of a and Dollar the constant value 1
@@ -154,23 +155,23 @@ This entry is to highlight the difference of using curly brackets and brackets w
 
 Therefore,  the second `a` in (2) is a `List` which was declared earlier takes an index of type `Int` and returns an `Int` (alias `Dollar`). That is why an `IndexOutOfBoundsException` was thrown at (2) when it was asked for the 4th element with '3'.
 
-##Additional Notes
-###Hard to Reason
+## Additional Notes
+### Hard to Reason
 Why is side effect is "hard to reason"? When functions with side effect are passed around it is hard to know when and how many times it is called. Basically, it is hard to debug and understand. So it is more predictable if the functions have no side effect.
 
-###Eta Expansion
+### Eta Expansion
 Eta expansion is the operation of automatically coercing a method into an equivalent function, for example,
-
-	val f = foo _ // or
-	val f: A => B = foo
-	
-###Single Method Call
+``` scala
+val f = foo _ // or
+val f: A => B = foo
+```	
+### Single Method Call
 The compiler can turn consecutive innovations into a single method call if all arguments are provided, for example,
-
-	curried(x: Int)(y: Int)(z: Int) == 
-		singleCurried(x: Int, y: Int, z: Int)
+``` scala
+curried(x: Int)(y: Int)(z: Int) == singleCurried(x: Int, y: Int, z: Int)
+```
 So basically the JVM will invoke `curried(1)(2)(3)` as `curried(1, 2, 3)` in one go instead of 3 times.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTA0ODI3MF19
+eyJoaXN0b3J5IjpbNzA2MzM0MjE4XX0=
 -->
