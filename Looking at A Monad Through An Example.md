@@ -12,7 +12,7 @@ def add(a: Int, b: Int): Int = a + b   	// B
 
 Function (A) divide the first integer by the second integer. Function (B) adds 2 integer together. These 2 functions are pretty straight forward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameters were `Float`, the function will return `Infinity`, but this is `Int`, it will throw an `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to notify the caller of the exception and fortunately, there is one better answer than all of them discussed here.
 
-Function (A) actual implementation is determined according to the type of value  in each scenario.
+Function (A) actual implementation is determined by the value and error returned in each scenario.
 
 ## Returning An Error Code
 For some cases returning an error code is the simplest solution. When the function fails, it returns an error code to indicate failure. Case in point, for function (A), if parameter `b` is zero, it fails and returns `-1` given the following implementation,
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MzM4MDYzMywyNDI3NTU0ODIsLTg1MT
-AzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5
-OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLT
-IwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4
-NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2ND
-AzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1
-ODEzMjcxNV19
+eyJoaXN0b3J5IjpbNDc2NzMyODIyLDI0Mjc1NTQ4MiwtODUxMD
+M2NTYzLDI1MzM3ODI3OSwtMjU0ODQ3OTE2LC0xMTcyNjg0Njk5
+LC0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2NjkzMSwtMj
+A0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2
+NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MD
+MsLTU4MjM1MTYwMSwxNTAxMjk0MDI1LDE4OTMwNzQ3MDAsNzU4
+MTMyNzE1XX0=
 -->
