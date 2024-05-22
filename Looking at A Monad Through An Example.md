@@ -155,7 +155,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
 This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monad? 
+Using effect is a good approach to resolve this issue. But, what does this has to do with a Monad? 
 
 > **Sidebar**\
 > A Monad, a typeclass[^tc], has the combined `map` and `flatMap` methods where `map` comes from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -175,7 +175,7 @@ Using effect is a good approach to resolve this issue. But, what does this has t
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4NDczMDgzLDM1Njc1NzU3NiwyMDc4ND
+eyJoaXN0b3J5IjpbNTkwNzgwMTMyLDM1Njc1NzU3NiwyMDc4ND
 QwODQsLTE0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4
 NSwtMTA0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMT
 g5MzA3NDcwMCw3NTgxMzI3MTUsMTczNzEyMjA5MSwxMzMwNTI0
