@@ -169,16 +169,16 @@ I hope you do agree using effect is the best approach to resolve this issue. But
 >
 > // loosely converted to
 >
-> val result8 = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
+> val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 > ```
 
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNTE3NzE3MSwzNTY3NTc1NzYsMjA3OD
-Q0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5
-ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMSwxNTAxMjk0MDI1LD
-E4OTMwNzQ3MDAsNzU4MTMyNzE1LDE3MzcxMjIwOTEsMTMzMDUy
-NDQzNCwtOTUwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MT
-ZdfQ==
+eyJoaXN0b3J5IjpbLTExMjM3MzEyMDksMzU2NzU3NTc2LDIwNz
+g0NDA4NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAx
+OTg1LC0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNS
+wxODkzMDc0NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEzMzA1
+MjQ0MzQsLTk1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0OD
+E2XX0=
 -->
