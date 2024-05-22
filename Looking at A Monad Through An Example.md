@@ -1,6 +1,6 @@
 
 # Looking at A Monad Through An Example
-There are many articles written about Monad. I want to explain what a Monad does and why it is useful. Let's us begin right away.
+There are many articles written about Monad. I want to explain what a Monad does and why it is useful using an example. Let's begin right away.
 
 *The code snippet in this article is using Scala 3 syntax*
 
@@ -177,11 +177,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNTcyMzkwMSwyNDI3NTU0ODIsLTg1MT
-AzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5
-OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLT
-IwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4
-NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2ND
-AzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1
-ODEzMjcxNV19
+eyJoaXN0b3J5IjpbNjE4MTQ4NTk4LDI0Mjc1NTQ4MiwtODUxMD
+M2NTYzLDI1MzM3ODI3OSwtMjU0ODQ3OTE2LC0xMTcyNjg0Njk5
+LC0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2NjkzMSwtMj
+A0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2
+NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MD
+MsLTU4MjM1MTYwMSwxNTAxMjk0MDI1LDE4OTMwNzQ3MDAsNzU4
+MTMyNzE1XX0=
 -->
