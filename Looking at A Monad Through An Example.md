@@ -126,12 +126,12 @@ val result7: Either[String, Int] = for {
 extract(result7)	// Error: / by zero
 ```
 
-We can make use of exception and `Either` to simply `div(...)`.
+Use of exception and `Either` to simply `div(...)`.
 ``` scala
 def div(a: Int, b: Int): Either[String, Int] = 
   try {
     Right(a / b)
-  } catch {case e: ArithmeticException => Left(e.getMessage)
+  } catch {case e: ArithmeticException => Left(e.getMessage)}
 ```
 
 > **Sidebar**\
@@ -167,7 +167,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwOTczNDc5NCwxMTg5MzU2NzU3LC0xOT
+eyJoaXN0b3J5IjpbLTgyMjc5MDMxOSwxMTg5MzU2NzU3LC0xOT
 IxNjk3NjgyLC0zNjM4MTIwMjIsMTg4ODAwNTM2NiwxODcxNTc1
 MTY3LDI0Mjc1NTQ4MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwtMj
 U0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3
