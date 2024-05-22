@@ -155,7 +155,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
 ## And The Point Is...
 Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else` branches.  The same monadic approach can be used to solve other issues in a similar fashion seen here to handle bad parameter. However, the topic can be complicated and require more reading. The payoff is making the code better managed as more code is added to tackle new requirements. Thank you for reading.
 
-## Notes on Typeclass (Optional)
+## For-Comprehension And Typeclass (Optional)
 A Monad is a typeclass[^tc] that has a few functions. In the interest of this article, the focus is on the `map` and `flatMap` functions.  `map` is inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
@@ -177,7 +177,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA2NjE2MzI4LC0yNTQ4NDc5MTYsLTExNz
+eyJoaXN0b3J5IjpbODc0OTQzODE5LC0yNTQ4NDc5MTYsLTExNz
 I2ODQ2OTksLTEwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2
 OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLT
 E0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0
