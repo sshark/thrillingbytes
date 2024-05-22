@@ -172,11 +172,11 @@ Using effect is a good approach to resolve this issue. But, what does this has t
 > val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 > ```
 
-Data structures like `
+Data structures like `Option`, `List` and `Either`can work without the 
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2OTExMDY3NiwtMjA0MDI3NTY3NSwzNT
+eyJoaXN0b3J5IjpbLTEyMDAwMDUxMywtMjA0MDI3NTY3NSwzNT
 Y3NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2
 Mzg1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMS
 wxNTAxMjk0MDI1LDE4OTMwNzQ3MDAsNzU4MTMyNzE1LDE3Mzcx
