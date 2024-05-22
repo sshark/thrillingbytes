@@ -172,11 +172,11 @@ Using effect is a good approach to resolve this issue. But, what does this has t
 > val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 > ```
 
-Data structures, like `Option`, `List`, and `Either`, can work without the whole load of boiler plates because these data structure has `map` and `flatMap` functions defined. If I have a random class `MyBox` without these 2 functions defined, it would not work in a for-comprehension loop like `Option`. The developer could add these methods to `MyBox` if the developer owns the source. If he does not
+Data structures, like `Option`, `List`, and `Either`, can work without the whole load of boiler plates because these data structure has `map` and `flatMap` functions defined. If I have a random class `MyBox` without these 2 functions defined, it would not work in a for-comprehension loop like `Option`. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to 
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1MTU0MjUzMCwtMjA0MDI3NTY3NSwzNT
+eyJoaXN0b3J5IjpbLTcwNTU2NjkzMSwtMjA0MDI3NTY3NSwzNT
 Y3NTc1NzYsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2
 Mzg1LC00Mjk0MDE5ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMS
 wxNTAxMjk0MDI1LDE4OTMwNzQ3MDAsNzU4MTMyNzE1LDE3Mzcx
