@@ -10,9 +10,9 @@ def div(a: Int, b: Int) = ???           // A
 def add(a: Int, b: Int): Int = a + b   	// B
 ```
 
-Function (A) divides the first integer by the second integer. Function (B) adds 2 integers together. These 2 functions are pretty straightforward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameter types are `Float`, the function will return `Infinity`, but this is `Int`, throwing a `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to handle the error and fortunately, there is a clear way to do this.
+Function (A) divides the first integer by the second integer. Function (B) adds 2 integers together. These 2 functions are pretty straightforward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameter types are `Float`, the function will return `Infinity`, but this is `Int`, throwing a `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot compute if the second parameter is zero. There are a few ways to handle the error and fortunately, there is a clear way to do this.
 
-Function (A) actual implementation is determined by the way the value and error are handled in each scenario.
+Function (A) actual implementation is determined by how the value and error are handled in each scenario.
 
 ## Returning An Error Code
 For some cases returning an error code is the simplest solution. When the function fails, it returns an error code to indicate failure. Case in point, for function (A), if parameter `b` is zero, it fails and returns `-1` given the following implementation,
@@ -167,7 +167,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MjI5NTE2NSwxMDY1MzM3NDEzLDExOD
+eyJoaXN0b3J5IjpbMTA4OTU2NzM2OCwxMDY1MzM3NDEzLDExOD
 kzNTY3NTcsLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxODg4MDA1
 MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMsMj
 UzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNzM5
