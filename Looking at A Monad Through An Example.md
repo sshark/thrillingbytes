@@ -153,7 +153,7 @@ def divide(a: Int, b: Int): Either[String, Int] =
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else` branches.  The same monadic approach can be used to solve other issues in a similar fashion seen here to handle bad parameter. However, the topic can be complicated and require more reading. The payoff is making the code better managed as more code is to face new requirements. Thank you for reading.
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else` branches.  The same monadic approach can be used to solve other issues in a similar fashion seen here to handle bad parameter. However, the topic can be complicated and require more reading. The payoff is making the code better managed as more code is added to tackle new requirements. Thank you for reading.
 
 ## Notes on Typeclass (Optional)
 A Monad is a typeclass[^tc] with the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -177,7 +177,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMzE2MDk3NCwtMjU0ODQ3OTE2LC0xMT
+eyJoaXN0b3J5IjpbLTU0NTQyMDQxNSwtMjU0ODQ3OTE2LC0xMT
 cyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2
 NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0LC
 0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLTEw
