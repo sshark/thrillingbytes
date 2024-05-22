@@ -28,18 +28,18 @@ def  div(a: Int, b: Int): (String, Int) = if (b == 0) ("/ by zero", 0) else (nul
 
 val (error1, value1) = div(10, 2)   // (null, 5)
 
-if (error1 == null) {   // C
+if (error1 == null) {
     println(s"The result of 10 / 2 is $value1")
 } else {
-    println("Cannot be divied by zero")
+    println("Cannot be divided by zero")
 }
 
 val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 
-// repeat the (C) if-else with error1 replace by error2
+// repeat the if-else block with error1 replace by error2
 ```
 
-The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor (C) into,
+The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor the `if-else` block  into a function,
 ``` scala
 def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
     if (result._1 == null) {   // C
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1ODU2OTU4OCwtMzYzODEyMDIyLDE4OD
-gwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2
-MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMT
-A3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAy
-NzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3Mi
-wtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2NDAzLC01
-ODIzNTE2MDFdfQ==
+eyJoaXN0b3J5IjpbLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxOD
+g4MDA1MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1
+NjMsMjUzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLT
+EwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQw
+Mjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2Nz
+IsLTIxMjI0NzYzODUsLTQyOTQwMTk4NSwtMTA0MjgzNjQwMywt
+NTgyMzUxNjAxXX0=
 -->
