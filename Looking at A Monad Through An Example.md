@@ -14,14 +14,14 @@ Function (A) divides the first integer by the second integer. Function (B) adds 
 
 Function (A) actual implementation is determined by how the value and error are handled in each scenario.
 
-## Returning An Error Code
+### Returning An Error Code
 For some cases returning an error code is the simplest solution. When the function fails, it returns an error code to indicate failure. Case in point, for function (A), if parameter `b` is zero, it fails and returns `-1` given the following implementation,
 ``` scala
 def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
 However, this is a bad implementation because `-1` could be a legit value for `div(-8, 8)`. There is no integer the function can return to indicate an error. Therefore, this method is not viable.
 
-## A Error And Result Pair
+### A Error And Result Pair
 Next, we split the error and result into a pair,
 ``` scala
 def  div(a: Int, b: Int): (String, Int) = if (b == 0) ("/ by zero", 0) else (null, a / b)
@@ -50,7 +50,7 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
 ```
 Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `div(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
 
-## Throwing An Exception
+### Throwing An Exception
 In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecked `RuntimeException`. In Java, functions that throw checked exceptions are enclosed in a `try-catch` block. On the other hand, Scala developers use the `try-catch` block to catch the exception they want to catch. 
 
 In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement function (A) using exception,
@@ -61,7 +61,7 @@ The responbility lies with the caller to catch the exception but the developer d
 
 [^canThrow]: Scala 3 is experimenting with the selective checked exception capture using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capability.
 
-## The Better Answer, Use An Effect
+### The Better Answer, Use An Effect
 Effect in this context is a *container* or a container with some capabilities. Effect is not a *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
 ``` scala
 def  div(a: Int, b: Int): Option[Int] = if (b == 0) None else Some(a / b)
@@ -142,10 +142,10 @@ def div(a: Int, b: Int): Either[String, Int] =
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
-## And The Point Is...
+### And The Point Is...
 Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between expected and unexpected (bad) events without deeply nested `if-else-then` branches.  The same monadic approach can be used to solve other issues in a similar fashion like how bad parameter or input is handled. However, this topic requires more reading and practice before it can be truly useful. We have to start somewhere. The payoff is making the code highly manageable as more code is added to tackle new requirements. Thank you for reading.
 
-## For-Comprehension And Typeclass (Optional)
+### For-Comprehension And Typeclass (Optional)
 A Monad is a typeclass[^tc] that has a few functions. In the interest of this article, the focus is on the `map` and `flatMap` functions.  `map` is inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
@@ -167,11 +167,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE1NDQyMzgwLDEwNjUzMzc0MTMsMTE4OT
-M1Njc1NywtMTkyMTY5NzY4MiwtMzYzODEyMDIyLDE4ODgwMDUz
-NjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2MywyNT
-MzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3
-MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2Nz
-UsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3MiwtMjEy
-MjQ3NjM4NV19
+eyJoaXN0b3J5IjpbMTgwNDY4NjgwNiwxMDY1MzM3NDEzLDExOD
+kzNTY3NTcsLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxODg4MDA1
+MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMsMj
+UzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNzM5
+NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQwMjc1Nj
+c1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2NzIsLTIx
+MjI0NzYzODVdfQ==
 -->
