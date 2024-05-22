@@ -2,7 +2,7 @@
 # Looking at A Monad Through An Example
 There are many articles written about Monad. I want to show how a Monad is used in practice with an example and then  explain why a Monad is needed. Let's begin right away.
 
-*The code snippet in this article is using Scala 3 syntax*
+*The code snippets in this article are using Scala 3 syntax*
 
 This article uses these 2 functions as example,
 ``` scala
@@ -10,7 +10,7 @@ def div(a: Int, b: Int) = ???           // A
 def add(a: Int, b: Int): Int = a + b   	// B
 ```
 
-Function (A) divide the first integer by the second integer. Function (B) adds 2 integer together. These 2 functions are pretty straight forward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameters were `Float`, the function will return `Infinity`, but this is `Int`, it will throw an `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to notify the caller of the exception and fortunately, there is one better answer than all of them discussed here.
+Function (A) divide the first integer by the second integer. Function (B) adds 2 integer together. These 2 functions are pretty straight forward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameter types were `Float`, the function will return `Infinity`, but this is `Int`, it will throw an `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to notify the caller of the exception and fortunately, there is one better answer than all of them discussed here.
 
 Function (A) actual implementation is determined by the way the value and error are handled in each scenario.
 
@@ -179,11 +179,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MTU3NTE2NywyNDI3NTU0ODIsLTg1MT
-AzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5
-OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLT
-IwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4
-NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0xMDQyODM2ND
-AzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkzMDc0NzAwLDc1
-ODEzMjcxNV19
+eyJoaXN0b3J5IjpbMjE4MjcwMzYyLDE4NzE1NzUxNjcsMjQyNz
+U1NDgyLC04NTEwMzY1NjMsMjUzMzc4Mjc5LC0yNTQ4NDc5MTYs
+LTExNzI2ODQ2OTksLTEwNzM5NzE4ODEsMjE0NDc3NzM3NCwtNz
+A1NTY2OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4NDQw
+ODQsLTE0ODg1ODY2NzIsLTIxMjI0NzYzODUsLTQyOTQwMTk4NS
+wtMTA0MjgzNjQwMywtNTgyMzUxNjAxLDE1MDEyOTQwMjUsMTg5
+MzA3NDcwMF19
 -->
