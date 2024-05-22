@@ -19,7 +19,7 @@ For some cases returning an error code is the simplest solution. When the functi
 ``` scala
 def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
-However, this is a bad implementation because `-1` could be a legit value for `div(-8, 8)`. To be honest, there is no integer we can use to indicate error. Therefore, this method is not viable.
+However, this is a bad implementation because `-1` could be a legit value for `div(-8, 8)`. To be honest, there is no integer the function can return to indicate error. Therefore, this method is not viable.
 
 ## A Error And Result Pair
 Next, we split the error and result into a pair,
@@ -179,7 +179,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MTA5NTA2NCwxODg4MDA1MzY2LDE4Nz
+eyJoaXN0b3J5IjpbLTM2MzgxMjAyMiwxODg4MDA1MzY2LDE4Nz
 E1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMsMjUzMzc4Mjc5
 LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNzM5NzE4ODEsMj
 E0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQwMjc1Njc1LDM1Njc1
