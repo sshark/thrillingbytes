@@ -10,7 +10,7 @@ def div(a: Int, b: Int) = ???           // A
 def add(a: Int, b: Int): Int = a + b   	// B
 ```
 
-Function (A) divides the first integer by the second integer. Function (B) adds 2 integers together. These 2 functions are pretty straightforward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameter types are `Float`, the function will return `Infinity`, but if this is `Int`, it will throw a `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to handle the error and fortunately, there is a clear way to do this.
+Function (A) divides the first integer by the second integer. Function (B) adds 2 integers together. These 2 functions are pretty straightforward. Unlike function (B), a [total function](https://www.linkedin.com/advice/0/what-difference-between-partial-total-function-functional-2jine#:~:text=A%20total%20function%20is%20a,return%20another%20number%20as%20output), function (A) cannot compute when the second parameter is 0. If the parameter types are `Float`, the function will return `Infinity`, but this is `Int`, throwing a `java.lang.ArithmeticException` exception with the message `/ by zero`. Function (A) must find a way to let its caller know it cannot provide an answer if the second parameter is zero. There are a few ways to handle the error and fortunately, there is a clear way to do this.
 
 Function (A) actual implementation is determined by the way the value and error are handled in each scenario.
 
@@ -167,11 +167,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMwMTc0ODkxLDEwNjUzMzc0MTMsMTE4OT
-M1Njc1NywtMTkyMTY5NzY4MiwtMzYzODEyMDIyLDE4ODgwMDUz
-NjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2MywyNT
-MzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3
-MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2Nz
-UsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4ODU4NjY3MiwtMjEy
-MjQ3NjM4NV19
+eyJoaXN0b3J5IjpbMTI0MjI5NTE2NSwxMDY1MzM3NDEzLDExOD
+kzNTY3NTcsLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxODg4MDA1
+MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMsMj
+UzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNzM5
+NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQwMjc1Nj
+c1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2NzIsLTIx
+MjI0NzYzODVdfQ==
 -->
