@@ -157,6 +157,8 @@ Using effect is a good approach to resolve this issue. But, what does this has t
 
 ## Additional Notes on Typeclass (Optional)
 A Monad is a typeclass[^tc] that conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) has the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
+
+[^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
  
 In Scala, the for-comprehension loop is a synatic sugar for a series of `flatMap` and `map`e.g.,
  ``` scala
@@ -169,10 +171,11 @@ val result8: Option[Int] = for {
 
 val result8: Option[Int] = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 ```
+
 Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwOTc4Mzg1OSwyMTQ0Nzc3Mzc0LC03MD
+eyJoaXN0b3J5IjpbMTI1NDY2MTI2MiwyMTQ0Nzc3Mzc0LC03MD
 U1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4
 NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC
 0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkz
