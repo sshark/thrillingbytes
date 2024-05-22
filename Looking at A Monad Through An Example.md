@@ -92,7 +92,7 @@ val result4: Option[Int] = for {
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  the call to `div(...)` is a success or failure before moving on to the next function. The result will be fed to next function and contunue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
+It is not necessarily for the developer to check if  the call to `div(...)` is a success or failure before moving on to the next function. The result will be fed to next function and continue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
 
 Had function (B) return the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehesion loop as,
 ``` scala
@@ -166,11 +166,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4OTM1Njc1NywtMTkyMTY5NzY4MiwtMz
-YzODEyMDIyLDE4ODgwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0
-ODIsLTg1MTAzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMT
-E3MjY4NDY5OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1
-NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NC
-wtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC0x
-MDQyODM2NDAzXX0=
+eyJoaXN0b3J5IjpbLTg3MTY5MTgzMSwxMTg5MzU2NzU3LC0xOT
+IxNjk3NjgyLC0zNjM4MTIwMjIsMTg4ODAwNTM2NiwxODcxNTc1
+MTY3LDI0Mjc1NTQ4MiwtODUxMDM2NTYzLDI1MzM3ODI3OSwtMj
+U0ODQ3OTE2LC0xMTcyNjg0Njk5LC0xMDczOTcxODgxLDIxNDQ3
+NzczNzQsLTcwNTU2NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1Nz
+YsMjA3ODQ0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00
+Mjk0MDE5ODVdfQ==
 -->
