@@ -167,7 +167,7 @@ I hope you do agree using effect is the best approach to resolve this issue. But
 >   y <- Option(x - 10)
 > } yield add(10, y)
 >
-> // equivalent to
+> // loosely converted to
 >
 > val result8 = divide(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
 > ```
@@ -175,7 +175,7 @@ I hope you do agree using effect is the best approach to resolve this issue. But
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNjQ1MTk1MiwzNTY3NTc1NzYsMjA3OD
+eyJoaXN0b3J5IjpbLTkwNTE3NzE3MSwzNTY3NTc1NzYsMjA3OD
 Q0MDg0LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5
 ODUsLTEwNDI4MzY0MDMsLTU4MjM1MTYwMSwxNTAxMjk0MDI1LD
 E4OTMwNzQ3MDAsNzU4MTMyNzE1LDE3MzcxMjIwOTEsMTMzMDUy
