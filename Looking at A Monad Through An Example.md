@@ -152,10 +152,8 @@ def divide(a: Int, b: Int): Either[String, Int] =
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
-This is the best solution compares to the other solutions presented here albeit it is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
-
 ## And The Point Is...
-Using effect is a good approach to resolve this issue . But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else`. 
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many things a monadic approach can simplfied branching between expected and unexpected (bad) events without deeply nested `if-else`.  Monadic approach can be used to solve other isHowever, is more complicated and require more reading into the topic. It makes the code better managed as more code is added to handle new requirements. However, this is not the point of this article.
 
 > **Sidebar**\
 > A Monad is a typeclass[^tc] that conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) has the `map` and `flatMap` functions where `map` inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -178,11 +176,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MDE3NDU3MiwyMTQ0Nzc3Mzc0LC03MD
-U1NjY5MzEsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4
-NCwtMTQ4ODU4NjY3MiwtMjEyMjQ3NjM4NSwtNDI5NDAxOTg1LC
-0xMDQyODM2NDAzLC01ODIzNTE2MDEsMTUwMTI5NDAyNSwxODkz
-MDc0NzAwLDc1ODEzMjcxNSwxNzM3MTIyMDkxLDEzMzA1MjQ0Mz
-QsLTk1MDIzNTg4NiwxMzgxNDgyMjcxLC0yMTE4NDQ0ODE2XX0=
+eyJoaXN0b3J5IjpbMTMyOTEyNzQ3LDIxNDQ3NzczNzQsLTcwNT
+U2NjkzMSwtMjA0MDI3NTY3NSwzNTY3NTc1NzYsMjA3ODQ0MDg0
+LC0xNDg4NTg2NjcyLC0yMTIyNDc2Mzg1LC00Mjk0MDE5ODUsLT
+EwNDI4MzY0MDMsLTU4MjM1MTYwMSwxNTAxMjk0MDI1LDE4OTMw
+NzQ3MDAsNzU4MTMyNzE1LDE3MzcxMjIwOTEsMTMzMDUyNDQzNC
+wtOTUwMjM1ODg2LDEzODE0ODIyNzEsLTIxMTg0NDQ4MTZdfQ==
 
 -->
