@@ -143,7 +143,7 @@ def div(a: Int, b: Int): Either[String, Int] =
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 ### And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between expected and unexpected (bad) events without deeply nested `if-else-then` branches.  The same monadic approach can be used to solve other issues in a similar fashion like how bad parameter or input is handled. However, this topic requires more reading and practice before it can be truly useful. We have to start somewhere. The payoff is making the code highly manageable as more code is added to tackle new requirements. Thank you for reading.
+Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between actual and unexpected (bad) events without deeply nested `if-else-then` branches ub the flow.  The same monadic approach can be used to solve other issues in a similar fashion like how bad parameter or input is handled. However, this topic requires more reading and practice before it can be truly useful. We have to start somewhere. The payoff is making the code highly manageable as more code is added to tackle new requirements. Thank you for reading.
 
 ### For-Comprehension And Typeclass (Optional)
 A Monad is a typeclass[^tc] that has a few functions. In the interest of this article, the focus is on the `map` and `flatMap` functions.  `map` is inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
@@ -167,7 +167,7 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2OTY4MzIyMywxODA0Njg2ODA2LDEwNj
+eyJoaXN0b3J5IjpbMTc2NzAwNTkzNywxODA0Njg2ODA2LDEwNj
 UzMzc0MTMsMTE4OTM1Njc1NywtMTkyMTY5NzY4MiwtMzYzODEy
 MDIyLDE4ODgwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLT
 g1MTAzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4
