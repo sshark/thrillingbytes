@@ -19,7 +19,7 @@ For some cases returning an error code is the simplest solution. When the functi
 ``` scala
 def  div(a: Int, b: Int): Int = if (b == 0) -1 else a / b  // Bad implementation
 ```
-However, this is a bad implementation because `-1` could be a legit value for `div(-8, 8)`. There is no integer the function can return to indicate an error. Therefore, this method is not viable.
+This is a bad implementation because `-1` is a legit value for `div(-8, 8)`. There is no integer the function can return to indicate an error. Therefore, this method is not viable.
 
 ### A Error And Result Pair
 Next, we split the error and result into a pair,
@@ -42,7 +42,7 @@ val (error2, value2) = div(10, 0)   // ("/ by zero", 0)
 The second part of the extraction logic conflicts with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle. Yes, we can refactor the `if-else` block  into a function,
 ``` scala
 def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
-    if (result._1 == null) {   // C
+    if (result._1 == null) {
         println(s"The result of 10 / 2 is ${result._2}")
     } else {
         println("Cannot be divided by zero")
@@ -167,11 +167,11 @@ Classes like `Option`, `List`, and `Either` can work right out of the box with f
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwNDY4NjgwNiwxMDY1MzM3NDEzLDExOD
-kzNTY3NTcsLTE5MjE2OTc2ODIsLTM2MzgxMjAyMiwxODg4MDA1
-MzY2LDE4NzE1NzUxNjcsMjQyNzU1NDgyLC04NTEwMzY1NjMsMj
-UzMzc4Mjc5LC0yNTQ4NDc5MTYsLTExNzI2ODQ2OTksLTEwNzM5
-NzE4ODEsMjE0NDc3NzM3NCwtNzA1NTY2OTMxLC0yMDQwMjc1Nj
-c1LDM1Njc1NzU3NiwyMDc4NDQwODQsLTE0ODg1ODY2NzIsLTIx
-MjI0NzYzODVdfQ==
+eyJoaXN0b3J5IjpbMTE2OTY4MzIyMywxODA0Njg2ODA2LDEwNj
+UzMzc0MTMsMTE4OTM1Njc1NywtMTkyMTY5NzY4MiwtMzYzODEy
+MDIyLDE4ODgwMDUzNjYsMTg3MTU3NTE2NywyNDI3NTU0ODIsLT
+g1MTAzNjU2MywyNTMzNzgyNzksLTI1NDg0NzkxNiwtMTE3MjY4
+NDY5OSwtMTA3Mzk3MTg4MSwyMTQ0Nzc3Mzc0LC03MDU1NjY5Mz
+EsLTIwNDAyNzU2NzUsMzU2NzU3NTc2LDIwNzg0NDA4NCwtMTQ4
+ODU4NjY3Ml19
 -->
