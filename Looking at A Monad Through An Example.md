@@ -1,6 +1,6 @@
 
 # Looking at A Monad Through An Example
-There are many articles written about Monad. I want to show how a Monad is used in practice with an example and then explain why a Monad is needed. Let's begin right away.
+Though many articles were written about Monad, this article shows how a Monad is used in practice with an example and then explains why a Monad is needed. Let's begin right away.
 
 *The code snippets in this article are using Scala 3 syntax*
 
@@ -48,26 +48,26 @@ def extract[A](result: (String, Int), ifOk: A => Unit, ifNOK: A => Unit) =
         println("Cannot be divided by zero")
     }
 ```
-Unfortunately, `extact(...)` is so restrictive. This will cause writing `extract(...)` in myraid of ways to suit some common needs. Also, what if I want to compose the result of the function `div(...)` with `add(...)` ie `add(1, div(10, 0))`. The permutation will explode. This method is workable but it will quickly becomes a maintenace nightmare once the requirements get complicated.
+Unfortunately, `extract (...)` is so restrictive. This will cause writing `extract(...)` to suit simple needs in many ways. Also, what if I want to compose the result of the function `div(...)` with `add(...)` i.e. `add(1, div(10, 0))`. The permutation will explode. This method is workable but soon it becomes a maintenance nightmare once the requirements get complicated.
 
 ## Throwing An Exception
 In Scala, all exceptions are unchecked unlike Java, where exceptions are split into checked `Exception` and unchecked `RuntimeException`. In Java, functions that throw checked exceptions are enclosed in a `try-catch` block. On the other hand, Scala developers use the `try-catch` block to catch the exception they want to catch. 
 
-In retrospective, it looks like throwing an exception seems to be the way forward. In fact, it is easy to implement function (A) using exception,
+In retrospect, throwing an exception seems to be the way forward. It is easy to implement the function (A) using the exception,
 ``` scala
 def  div(a: Int, b: Int): Int = a / b
 ```
-The responbility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, we are back to writing our code the Java style with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^canThrow].
+The responsibility lies with the caller to catch the exception but the developer does not know if a function can throw an exception when certain parameteric values are met. Consequently, any function that the application uses can cause the application to be unusable or unstable at best if the exception is not caught in its place. This makes the job of the developers very unpleasant. Worse, we are back to writing our code the Java-style with `try-catch` or `try-catch-finally` blocks everywhere blindfolded[^canThrow].
 
 [^canThrow]: Scala 3 is experimenting with the selective checked exception capture using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capability.
 
-### The Better Answer, Use An Effect
-Effect in this context is a *container* or a container with some capabilities. Effect is not a *side effect*. Simple container like `Opton` is a list with the maximum capacity of 1 element or empty. With `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
+## The Better Answer, Use An Effect
+The effect in this context is a *container* or a container with some capabilities. The effect is not a *side effect*. A simple container like `Option` is a list with the maximum capacity of 1 element or empty. With the `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
 ``` scala
 def  div(a: Int, b: Int): Option[Int] = if (b == 0) None else Some(a / b)
 
 val result1: Option[Int] = div(10, 2)	// Some(5)
-val result2: Option[Int] = duv(10, 0)	// None
+val result2: Option[Int] = div(10, 0)	// None
 
 // print the result
 def extract(result: Option[Int]): Unit = result match {
@@ -78,23 +78,33 @@ def extract(result: Option[Int]): Unit = result match {
 extract(result1)	// The result is 5
 extract(result2)	// Cannot be divided by 0
 ```
-One thing to take note is don't be eager to extract the values from the effect unless this is the final call. Let's say, we want to add 10 to the result get from `divide`. We cannot write our code as such `add(10, div(10, 2)` because `div(...)` returns an `Option` instead of a `Int`. We have to write our code this way,
+Please do not eagerly extract values from the effect unless this is the final call. 
+
+Let's say, we have a function to add 10 to the result if the result is even otherwise cancel the whole calculation. `None` represents the cancelation in the composed function. 
+
+It is not recommended to write `addIfEven(10, div(10, 2).get)` because when `div(...)` returns a `None` instead of a `Some[Int]`, invoking a `get` on `None` would cause an exception. 
+
+Using `Option` inside the function i.e. `addIfEven(a: Int, b: Option[Int]): Option[Int]` is bad in this case because it makes the code difficult to work with the values inside `Option`.
+
+Instead, define as `addIfEven(a: Int, b: Int): Option[Int]` and write the code the following way,
 ``` scala
 val result3: Option[Int] = for {
   x <- div(10, 2)
-} yield add(10, x)
+  y <- addIfEven(10, x)
+} yield y
 
 extract(result3)	// The result is 15
 
 val result4: Option[Int] = for {
   x <- div(10, 0)
-} yield add(10, x)
+  y <- addIfEven(10, x)
+} yield y
 
 extract(result4)	// Cannot be divided by zero
 ```
-It is not necessarily for the developer to check if  the call to `div(...)` is a success or failure before moving on to the next function. The result will be fed to next function and continue to do as long as there are functions to call, the final result from the [*for-comprehesion*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
+It is not necessarily for the developer to check if the call to `div(...)` is a success or failure before moving on to the next function. The result will be fed to the next function and continue to do so as long as there are functions to call, the final result from the [*for-comprehension*](https://docs.scala-lang.org/tour/for-comprehensions.html) loop will return `Some` of a value or `None`.
 
-Had function (B) return the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehesion loop as,
+Had the function (B) returned the result of type `Option[Int]` instead of `Int`, we can rewrite the for-comprehension loop as,
 ``` scala
 def add(a: Int, b: Int): Option[Int] = Some(a + b)
 
@@ -103,7 +113,7 @@ val result5: Option[Int] = for {
   y <- add(10, x)
 } yield y
 ```
-What if we want the function to provide the error message instead. We can use `Either[String, Int]`.
+What if we want the function to provide the error message instead? We can use `Either[String, Int]`.
 ``` scala
 def div(a: Int, b: Int): Either[String, Int] = 
   if (b == 0) Left("/ by zero") else Right(a / b)
@@ -136,16 +146,16 @@ def div(a: Int, b: Int): Either[String, Int] =
 
 > **Sidebar**\
 > As we discover later on, we can use other data types like [`Try`](https://www.scala-lang.org/api/3.3.3/scala/util/Try.html) from the standard Scala library or `IO` from a 3rd party library [Cats Effect](https://typelevel.org/cats-effect/). 
->As metioned before, an effect is a container with capabilities: -
+>As mentioned before, an effect is a container with capabilities: -
 >1. `Option` provides a value or no value (empty) capability.
 >2. `List` provides a list of values or no value (empty) capability.
 >3. `Try`, like the `try-catch` block, catches any exception thrown within it.
 >4. `IO` is an IO Monad which has many capabilities which include handling side-effects, error handling, parallel computation, and many more.
 
 ## And The Point Is...
-Using effect is a good approach to resolve this issue. But, what does this has to do with Monads? This is one of many ways using Monads to simplfy branching between actual and unexpected (bad) events without deeply nested `if-else-then` branches ub the flow.  The same monadic approach can be used to solve other issues in a similar fashion like how bad parameter or input is handled. However, this topic requires more reading and practice before it can be truly useful. We have to start somewhere. The payoff is making the code highly manageable as more code is added to tackle new requirements. Thank you for reading.
+Using effect is a good approach to resolve this issue. But, what does this have to do with Monads? This is one of many ways using Monads to simplfy branching between actual and unexpected (bad) events without deeply nested `if-else-then` branches in the flow.  The same monadic approach can be used to solve other issues in a similar fashion like how bad parameter or input is handled. However, this topic requires more reading and practice before it can be truly useful. We have to start somewhere. The payoff is making the code highly manageable as more code is added to tackle new requirements. Thank you for reading.
 
-## For-Comprehension And Typeclass (Optional)
+### For-Comprehension And Typeclass (Optional)
 A Monad is a typeclass[^tc] that has a few functions. In the interest of this article, the focus is on the `map` and `flatMap` functions.  `map` is inherited from the Functor.  Strictly speaking, a Monad is a subclass of *Applicative* which in turn a subclass of *Functor*.
 
 [^tc]: Typeclass is like Java `interface`. However, It is imperative to understand how typeclass functions. Please refer to  https://dev.to/jmcclell/inheritance-vs-generics-vs-typeclasses-in-scala-20op for an introduction.
@@ -159,19 +169,23 @@ val result8: Option[Int] = for {
 
 // loosely converted to
 
-val result8: Option[Int] = div(10, 2).flatMap(x => Option(x - 10).map(y => add(10, y)))
+val result8: Option[Int] = 
+  div(10, 2)
+    .flatMap(x => Option(x - 10)
+    .map(y => add(10, y)))
 ```
 
-Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes has `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorhism a.k.a typeclassing which is very useful for extending the class capabilities. Please refer to [here](https://gist.github.com/sshark/6a169bedfa97718dd72eb0738fbb046f) for the `MyBox` Monad typeclass implemention and example.
+Classes like `Option`, `List`, and `Either` can work right out of the box with for-comprehension because these classes have `map` and `flatMap` methods defined. If a random class `MyBox` without these 2 methods defined, it would not work. The developer could add these methods to `MyBox` if the developer owns the source. If he does not, then he has to use adhoc polymorphism a.k.a typeclassing which is very useful for extending the class capabilities. Please refer to [here](https://gist.github.com/sshark/6a169bedfa97718dd72eb0738fbb046f) for the `MyBox` Monad typeclass implemention and example.
 
 Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) to be a Monad. For example, `Option`, `List`, and `Either` are monads because they passed the Monad Law test. Classes like `Set` and `Try` are not because they failed the test even though they have `map` and `flatMap` methods defined.
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg2NjQ4NTA1LDE3NjcwMDU5MzcsMTgwND
-Y4NjgwNiwxMDY1MzM3NDEzLDExODkzNTY3NTcsLTE5MjE2OTc2
-ODIsLTM2MzgxMjAyMiwxODg4MDA1MzY2LDE4NzE1NzUxNjcsMj
-QyNzU1NDgyLC04NTEwMzY1NjMsMjUzMzc4Mjc5LC0yNTQ4NDc5
-MTYsLTExNzI2ODQ2OTksLTEwNzM5NzE4ODEsMjE0NDc3NzM3NC
-wtNzA1NTY2OTMxLC0yMDQwMjc1Njc1LDM1Njc1NzU3NiwyMDc4
-NDQwODRdfQ==
+eyJoaXN0b3J5IjpbMTMxNTczMzE5Myw4ODY2NDg1MDUsMTc2Nz
+AwNTkzNywxODA0Njg2ODA2LDEwNjUzMzc0MTMsMTE4OTM1Njc1
+NywtMTkyMTY5NzY4MiwtMzYzODEyMDIyLDE4ODgwMDUzNjYsMT
+g3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2MywyNTMzNzgy
+NzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3MTg4MS
+wyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2NzUsMzU2
+NzU3NTc2XX0=
 -->
