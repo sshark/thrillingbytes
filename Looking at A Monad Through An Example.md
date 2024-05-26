@@ -62,7 +62,7 @@ The responsibility lies with the caller to catch the exception but the developer
 [^canThrow]: Scala 3 is experimenting with the selective checked exception capture using the [`CanThrow`](https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html) capability.
 
 ## The Better Answer, Use An Effect
-The effect in this context is a *container* or a container with some capabilities. The effect is not a *side effect*. A simple container like `Option` is a list with the maximum capacity of 1 element or empty. With the `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
+The effect in this context is a *container* or more specifically, a container with capabilities. The effect is not a *side effect*. A simple container like `Option` is a list with the maximum capacity of 1 element or empty. With the `Option` effect the function can let its caller know its return status. The function will return `Some` or None to indicate success or failure. Function (A) implementation and usage would look like this
 ``` scala
 def  div(a: Int, b: Int): Option[Int] = if (b == 0) None else Some(a / b)
 
@@ -181,11 +181,11 @@ Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNTczMzE5Myw4ODY2NDg1MDUsMTc2Nz
-AwNTkzNywxODA0Njg2ODA2LDEwNjUzMzc0MTMsMTE4OTM1Njc1
-NywtMTkyMTY5NzY4MiwtMzYzODEyMDIyLDE4ODgwMDUzNjYsMT
-g3MTU3NTE2NywyNDI3NTU0ODIsLTg1MTAzNjU2MywyNTMzNzgy
-NzksLTI1NDg0NzkxNiwtMTE3MjY4NDY5OSwtMTA3Mzk3MTg4MS
-wyMTQ0Nzc3Mzc0LC03MDU1NjY5MzEsLTIwNDAyNzU2NzUsMzU2
-NzU3NTc2XX0=
+eyJoaXN0b3J5IjpbLTEyMzUyNzgyOCwxMzE1NzMzMTkzLDg4Nj
+Y0ODUwNSwxNzY3MDA1OTM3LDE4MDQ2ODY4MDYsMTA2NTMzNzQx
+MywxMTg5MzU2NzU3LC0xOTIxNjk3NjgyLC0zNjM4MTIwMjIsMT
+g4ODAwNTM2NiwxODcxNTc1MTY3LDI0Mjc1NTQ4MiwtODUxMDM2
+NTYzLDI1MzM3ODI3OSwtMjU0ODQ3OTE2LC0xMTcyNjg0Njk5LC
+0xMDczOTcxODgxLDIxNDQ3NzczNzQsLTcwNTU2NjkzMSwtMjA0
+MDI3NTY3NV19
 -->
