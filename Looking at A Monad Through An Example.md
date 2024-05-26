@@ -1,6 +1,6 @@
 
 # Looking at A Monad Through An Example
-Though many articles were written about Monad, this article shows how a Monad is used in practice with an example and then explains why a Monad is needed. Let's begin right away.
+Though many articles were written about Monad, this article shows how a Monad is used in practice with an example and explains why a Monad is needed. Let's begin right away.
 
 *The code snippets in this article are using Scala 3 syntax*
 
@@ -181,7 +181,7 @@ Classes must conforms to the [Monad Law](https://devth.com/monad-laws-in-scala) 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzUyNzgyOCwxMzE1NzMzMTkzLDg4Nj
+eyJoaXN0b3J5IjpbLTk0MDYyOTk2MywxMzE1NzMzMTkzLDg4Nj
 Y0ODUwNSwxNzY3MDA1OTM3LDE4MDQ2ODY4MDYsMTA2NTMzNzQx
 MywxMTg5MzU2NzU3LC0xOTIxNjk3NjgyLC0zNjM4MTIwMjIsMT
 g4ODAwNTM2NiwxODcxNTc1MTY3LDI0Mjc1NTQ4MiwtODUxMDM2
