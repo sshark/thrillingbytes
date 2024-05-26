@@ -7,7 +7,7 @@ I tend to forget as of what causes the errors if I seldom see them. So, I make q
 
 There is a [companion website](http://scalapuzzlers.com/) to this book.
 
-##Arg Arrgh!! (Puzzler 6)
+## Arg Arrgh!! (Puzzler 6)
 A good pointer for applying a function repeatedly,
 
 	val result = (1 to n).foldLeft(arg) {
@@ -173,5 +173,5 @@ curried(x: Int)(y: Int)(z: Int) == singleCurried(x: Int, y: Int, z: Int)
 So basically the JVM will invoke `curried(1)(2)(3)` as `curried(1, 2, 3)` in one go instead of 3 times.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA2MzM0MjE4XX0=
+eyJoaXN0b3J5IjpbLTEzNzc0MTM4MDAsNzA2MzM0MjE4XX0=
 -->
